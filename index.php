@@ -51,6 +51,8 @@
                       <a href="">Detail</a>
                     </div>
                 </div>
+                <div class="col bg-transparent"></div>
+                <div class="col bg-transparent"></div>
               </div>
               <div class="row">
                 <div class="col text-center">

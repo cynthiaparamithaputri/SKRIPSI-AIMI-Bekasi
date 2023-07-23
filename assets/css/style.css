@@ -323,6 +323,49 @@ header {
     border: 2px var(--first-color);
 }
 
+/*login*/
+
+.log-app .navbar {
+    width: 100%;
+    background-color: var(--sixth-color);
+}
+
+.login .row {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+
+.login form button {
+    padding: 10px 20px;
+    border-radius: 5px;
+
+}
+
+.login .login-other button {
+    background-color: transparent;
+    border: 1px solid var(--third-color);
+}
+
+.login .login-other button:hover {
+    background-color: var(--third-color);
+    color: var(--primary-color);
+}
+
+.login .login-register button, .login form button {
+    background-color: var(--third-color);
+    border: 1px solid var(--third-color);
+    color: var(--primary-color);
+}
+
+.login .login-register button:hover, .login form button:hover {
+    background-color: transparent;
+    color: var(--third-color);
+}
+
+.login .login-text p {
+    color: var(--third-color);
+}
+
 @media screen and (max-width: 992px) {
     .beranda .header-box {
         padding-top: 200px;

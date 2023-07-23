@@ -93,7 +93,7 @@
                 <input type="text" class="form-control" id="bayi4" />
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Proses Kelahiran</label>
@@ -111,7 +111,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah Menjalankan Inisiasi Menyusui Dini (IMD) Setelah Melahirkan Selama 1 Jam?</label>
@@ -129,7 +129,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah Rawat Gabung Ibu dan Bayi 24 Jam Nonstop Setelah Kelahiran?</label>
@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="row mb-4">
                 <div class="col">
@@ -160,7 +160,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah Pada Saat Ini Bayi Anda Mendapatkan Asupan Lain Selain ASI? (Susu Formula / Makanan / Minuman)</label>
@@ -178,14 +178,14 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
                 <label for="asupan3" class="form-label">Jika Ya, sebutkan! Jika Tidak, JAWAB (-)</label>
                 <input type="text" class="form-control" id="asupan3" />
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah Bayi Menggunakan Botol, Dot, atau Empeng?</label>
@@ -203,7 +203,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah Bayi Mempunyai Riwayat Kuning? (Jaundice)</label>
@@ -221,7 +221,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah Bayi Sudah Mulai MPASI?</label>
@@ -239,7 +239,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
                 <label for="MPASI3" class="form-label">Jika Sudah MPASI, Apa Yang Diberikan?
@@ -252,7 +252,7 @@
                 <textarea class="form-control" id="MPASI3" rows="7"></textarea>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah Sebelumnya Sudah Pernah Berkonsultasi Dengan Konselor Menyusui atau Konsultan Laktasi?</label>
@@ -270,7 +270,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah Selama Kehamilan Sudah Mengikuti Kelas Persiapan Menyusui atau Konseling Persiapan Menyusui?</label>
@@ -288,7 +288,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah selama pemberian MPASI sudah mengikuti kelas MPASI atau konseling MPASI?</label>
@@ -306,7 +306,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
                 <label for="jenis" class="form-label">Konseling Yang Diinginkan Saat Ini</label>
@@ -324,7 +324,7 @@
                 <textarea class="form-control" id="masalah" rows="3"></textarea>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah dirumah ibu mendapatkan bantuan dari suami atau anggota keluarga lain dalam merawat bayi/mengurus rumah/mengurus anak yang lebih tua jika ada?</label>
@@ -342,7 +342,7 @@
                 </div>
             </div>
 
-            <hr className="hr" />
+            <hr class="hr" />
 
             <div class="mb-4">
             <label class="form-label">Apakah suami dan keluarga mendukung ibu untuk menyusui atau pemberian MPASI yang tepat sesuai anjuran?</label>
