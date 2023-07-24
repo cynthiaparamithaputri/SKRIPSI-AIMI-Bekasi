@@ -45,7 +45,7 @@
                     <td>Konseling Menyusui</td>
                     <td>Konselor #1</td>
                     <td><button class="btn-sm m-1" onclick="window.location.href='riwayat-detail.php';">Detail</button>
-                    <button class="btn-sm m-1" onclick="window.location.href='tambah-feedback.php';">Feedback</button></td>
+                    <button class="btn-sm m-1" onclick="window.location.href='feedback-tambah.php';">Feedback</button></td>
                     </tr>
                 </tbody>
             </table>

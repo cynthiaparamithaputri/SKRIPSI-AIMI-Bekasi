@@ -36,7 +36,7 @@
                     </button>
                 </div>
                 <p class="text-center fw-bold mx-3 my-3">Atau</p>
-                <form>
+                <form action="user/beranda.php" method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label">Alamat Email</label>
                         <input type="email" class="form-control" id="email" placeholder="Masukkan email" />

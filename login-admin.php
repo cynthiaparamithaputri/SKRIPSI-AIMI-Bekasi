@@ -28,7 +28,7 @@
                 <div class="login-text mb-5 mt-lg-0 mt-1 text-center">
                     <p class="lead fw-bold mb-0">Masuk sebagai Admin / Konselor</p>
                 </div>
-                <form>
+                <form action="admin/beranda.php" method="post">
                     <div class="mb-3">
                         <label for="id" class="form-label">ID</label>
                         <input type="text" class="form-control" id="id" placeholder="Masukkan id" />
