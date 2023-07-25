@@ -22,7 +22,7 @@
           <div class="row">
             <div class="col">
             <h3 class="mb-2">Tambahkan Feedback</h3>
-            <p class="">- Kami sangat menghargai feedback anda</p>
+            <p>- Kami sangat menghargai feedback anda</p>
             </div>
           </div>
           <div class="row my-5">

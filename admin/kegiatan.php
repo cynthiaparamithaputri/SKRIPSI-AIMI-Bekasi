@@ -23,11 +23,11 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex at libero vulputate
               gravida. Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
               <div>
-                <button class="btn-3 btn-lg">Tambah Kegiatan Baru<i class="bi bi-calendar-plus mx-2"></i></button>
+                <button class="btn-3 btn-lg" onclick="window.location.href='kegiatan-tambah.php';">Tambah Kegiatan Baru<i class="bi bi-calendar-plus mx-2"></i></button>
               </div>
           </div>
         </header>
-            <div class="kegiatan w-100">
+            <div class="kegiatan w-100 min-vh-100">
                 <div class="container">
                 <div class="row my-5">
                     <div class="col">

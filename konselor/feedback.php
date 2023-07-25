@@ -14,20 +14,20 @@
     <div class="admin">
         <?php
         //navbar
-        include "../components/navbar-admin.php";
+        include "../components/navbar-konselor.php";
         ?>
         <div class="user-app">
         <header class="jumbotron w-100 d-flex align-items-center">
           <div class="container text-center">
-            <h1>Data Konseling</h1>
+            <h1>Feedback</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex at libero vulputate
               gravida. Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
               <div>
-                <button class="btn-3 btn-lg">Ekspor Semua ke CSV<i class="bi bi-download mx-2"></i></button>
+                <button class="btn-3 btn-lg">Ekspor Feedback ke CSV<i class="bi bi-download mx-2"></i></button>
               </div>
           </div>
         </header>
-            <div class="konseling w-100 min-vh-100">
+            <div class="feedback w-100 min-vh-100">
                 <div class="container">
                 <div class="row my-5">
                     <div class="col">
@@ -43,31 +43,22 @@
                         <table class="table table-bordered">
                         <thead>
                             <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Timestamp</th>
+                            <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Jenis Konseling</th>
                             <th scope="col" class="col-md-4">Masalah yang Dihadapi</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Waktu Selesai</th>
-                            <th scope="col">Konselor</th>
-                            <th scope="col"></th>
+                            <th scope="col" class="col-md-4">Feedback</th>
+                            </tr>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">1</th>
-                            <td>14/07/2023 11:25</td>
+                            <th scope="row">1234</th>
                             <td>Cynthia Paramitha</td>
                             <td>Konseling Menyusui</td>
                             <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt similique ratione reiciendis maiores enim. Consequuntur rem quia totam laudantium inventore corrupti possimus molestiae, reiciendis ipsam officiis, molestias odio ut quo.</td>
-                            <td>Selesai</td>
-                            <td>14/07/2023 11:25</td>
-                            <td class="col-md-2">Cynthia Paramitha Putri</td>
-                            <td class="text-center">
-                            <button class="btn-sm btn-primary" onclick="window.location.href='konselor-set.php';">Konselor</button><br/>
-                            <button class="btn-sm btn-success" onclick="window.location.href='konseling-detail.php';">Lihat Detail</button>
-                            </td>
+                            <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum et quia, ipsam ducimus a nisi sit ullam nam doloribus maxime dolore maiores harum rem, explicabo est cumque voluptatibus nihil at.</td>
                             </tr>
                         </tbody>
                         </table>

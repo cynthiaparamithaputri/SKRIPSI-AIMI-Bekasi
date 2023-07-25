@@ -17,7 +17,7 @@
       include "../components/navbar-user.php";
       ?>
       <div class="user-app">
-      <div class="kegiatan w-100 min-vh-100">
+      <div class="kegiatan-user w-100 min-vh-100">
         <div class="container">
           <div class="row">
             <div class="col">

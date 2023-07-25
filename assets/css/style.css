@@ -189,47 +189,47 @@ header {
     border: 2px var(--second-color) solid;
 }
 
-.beranda .kegiatan {
+.beranda .kegiatan-user {
     background-color: var(--third-color);
     padding-bottom: 100px;
 }
 
-.beranda .kegiatan .row:nth-child(1) {
+.beranda .kegiatan-user .row:nth-child(1) {
     padding-top: 150px;
     padding-bottom: 100px;
 }
 
-.beranda .kegiatan .row:nth-child(1) h1 {
+.beranda .kegiatan-user .row:nth-child(1) h1 {
     color: var(--second-color);
 }
 
-.beranda .kegiatan .row:nth-child(1) p {
+.beranda .kegiatan-user .row:nth-child(1) p {
     color: var(--primary-color);
 }
 
-.beranda .kegiatan .row:nth-child(2), .user-app .kegiatan .row:nth-child(2) {
+.beranda .kegiatan-user .row:nth-child(2), .user-app .kegiatan-user .row:nth-child(2) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 15px;
     padding-inline: 10px;
 }
 
-.beranda .kegiatan .row:nth-child(2) img, .user-app .kegiatan .row:nth-child(2) img {
+.beranda .kegiatan-user .row:nth-child(2) img, .user-app .kegiatan-user .row:nth-child(2) img {
     height: 360px;
 }
 
-.beranda .kegiatan .row:nth-child(2) .col, .user-app .kegiatan .row:nth-child(2) .col {
+.beranda .kegiatan-user .row:nth-child(2) .col, .user-app .kegiatan-user .row:nth-child(2) .col {
     background-color: var(--sixth-color);
     padding: 0;
 }
 
-.beranda .kegiatan .row:nth-child(2) h5, .user-app .kegiatan .row:nth-child(2) h5 {
+.beranda .kegiatan-user .row:nth-child(2) h5, .user-app .kegiatan-user .row:nth-child(2) h5 {
     color: var(--color-text);
     font-weight: bold;
     line-height: 1.5;
 }
 
-.beranda .kegiatan .ket a, .user-app .kegiatan .ket a {
+.beranda .kegiatan-user .ket a, .user-app .kegiatan-user .ket a {
     padding: 5px 10px;
     border-radius: 5px;
     text-decoration: none;
@@ -237,29 +237,29 @@ header {
     color: var(--primary-color);
 }
 
-.beranda .kegiatan .row:nth-child(3) {
+.beranda .kegiatan-user .row:nth-child(3) {
     padding-top: 100px;
 }
 
-.beranda .kegiatan .row:nth-child(3) button {
+.beranda .kegiatan-user .row:nth-child(3) button {
     background-color: var(--fifth-color);
     color: var(--text-color);
 }
 
-.beranda .kegiatan .row:nth-child(3) button:hover {
+.beranda .kegiatan-user .row:nth-child(3) button:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
 
 /*user-app*/
 
-.user-app .tentang, .user-app .kegiatan, .user-app .daftar, .user-app .riwayat {
+.user-app .tentang, .user-app .kegiatan-user, .user-app .daftar, .user-app .riwayat {
     padding-top: 150px;
     background-color: var(--primary-color);
     padding-bottom: 100px;
 }
 
-.user-app .tentang .row:nth-child(1) h1, .user-app .kegiatan .row:nth-child(1) h1, .user-app .daftar .row:nth-child(1) h1, .user-app .riwayat .row:nth-child(1) h3 {
+.user-app .tentang .row:nth-child(1) h1, .user-app .kegiatan-user .row:nth-child(1) h1, .user-app .daftar .row:nth-child(1) h1, .user-app .riwayat .row:nth-child(1) h3 {
     color: var(--secondary-color);
     font-weight: 900;
 }
@@ -464,10 +464,15 @@ section.container {
 
 /*admin-app*/
 
-.admin .user-app .konseling, .admin .user-app .kegiatan, .admin .user-app .konselor {
+.admin .user-app .konseling, .admin .user-app .kegiatan, .admin .user-app .konselor, .admin .user-app .feedback {
     padding-top: 100px;
     background-color: var(--primary-color);
     padding-bottom: 100px;
+}
+
+.admin .user-app h3.text-sm {
+    color: var(--secondary-color);
+    font-weight: 900;
 }
 
 /*kegiatan*/
@@ -523,6 +528,16 @@ section.container {
     background-color: #007bff;
     color: #fff;
     border: none;
+}
+
+.btn-primary:disabled{
+    background-color: #5e646e;
+    border: #5e646e;
+}
+
+.btn-primary:disabled:hover{
+    background-color: #5e646e;
+    border: #5e646e;
 }
   
 .btn-primary:hover {
@@ -595,10 +610,7 @@ section.container {
   
 /* Custom styling untuk kolom masalah yang dihadapi */
 .table .col-md-4 {
-    max-width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    min-width: 400px;
 }
 
 .table .col-md-2 {

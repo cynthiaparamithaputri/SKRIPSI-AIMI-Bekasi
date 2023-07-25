@@ -14,7 +14,7 @@
     <div class="admin">
         <?php
         //navbar
-        include "../components/navbar-admin.php";
+        include "../components/navbar-konselor.php";
         ?>
         <div class="user-app">
         <header class="jumbotron w-100 d-flex align-items-center">
