@@ -1,3 +1,50 @@
+<?php 
+include "koneksi.php";
+
+$email = "";
+$password = "";
+$errorMessage = "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  do {
+    if (empty($email) || empty($password)) {
+      $errorMessage = "Masukkan Email atau Password!";
+      break;
+    }
+
+    // Prepare the SQL statement with parameter binding
+    $sql = "SELECT * FROM t_user WHERE email='$email'";
+    $hasil = mysqli_query($koneksi, $sql);
+
+    if (!$hasil) {
+      $errorMessage = "Kesalahan dalam mendapatkan hasil kueri.";
+      break;
+    }
+
+    // Check if the query returns a valid result
+    if (mysqli_num_rows($hasil) > 0) {
+      $row = mysqli_fetch_assoc($hasil);
+
+      if ($password == $row['password']) {
+        session_start();
+        $_SESSION['login_user'] = $row['email'];
+        header('Location: user/beranda.php');
+        exit;
+      } else {
+        $errorMessage = "Gagal login. Password salah!";
+        break;
+      }
+    } else {
+      $errorMessage = "Gagal login. Email atau password salah!";
+      break;
+    }
+  } while (false);
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,19 +83,29 @@
                     </button>
                 </div>
                 <p class="text-center fw-bold mx-3 my-3">Atau</p>
-                <form action="user/beranda.php" method="post">
+                <form method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label">Alamat Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Masukkan email" />
+                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" placeholder="Masukkan email" />
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Masukkan password" />
+                        <input type="password" class="form-control" id="password"  name="password" value="<?php echo $password; ?>" placeholder="Masukkan password" />
                     </div>
                     <button type="submit" class="mt-2 mb-5">
                     Masuk
                     </button>
                 </form>
+                <?php
+                if (!empty($errorMessage)){
+                echo "
+                <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                <strong>$errorMessage</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                </div>
+                ";
+                }
+                ?>
             </div>
           </div>
         </div>
