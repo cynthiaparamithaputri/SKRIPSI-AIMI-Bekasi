@@ -51,9 +51,9 @@
                             <th scope="col" class="col-md-4">Mendapat Informasi AIMI Dari</th>
                             <th scope="col" class="col-md-2">Media Konseling</th>
                             <th scope="col" class="col-md-2">Nama Bayi</th>
-                            <th scope="col" class="col-md-2">Usia Bayi Saat Ini</th>
+                            <th scope="col" class="col-md-2">Usia Bayi Saat Ini (Bulan)</th>
                             <th scope="col" class="col-md-2">Bayi Anak Ke</th>
-                            <th scope="col" class="col-md-4">Usia Kehamilan Saat Bayi Lahir</th>
+                            <th scope="col" class="col-md-4">Usia Kehamilan Saat Bayi Lahir (Minggu)</th>
                             <th scope="col" class="col-md-2">Proses Kelahiran</th>
                             <th scope="col" class="col-md-4">Apakah Menjalankan Inisiasi Menyusui Dini (IMD) Setelah Melahirkan Selama 1 Jam?</th>
                             <th scope="col" class="col-md-4">Apakah Rawat Gabung Ibu dan Bayi 24 Jam Nonstop Setelah Kelahiran?</th>
@@ -81,30 +81,30 @@
                             <td>Jl. Tanjung 4 Taman Century 2, Blok L No.5, RT 003/RW 023, Kec. Bekasi Selatan, Kel. Pekayon Jaya, Bekasi</td>
                             <td>081288746848</td>
                             <td>cynthiaparamithaputri@gmail.com</td>
-                            <td></td>
-                            <td></td>
-                            <td>Cynthia Paramitha Putri</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>Instagram</td>
+                            <td>WhatsApp Chat</td>
+                            <td>Alexandra</td>
+                            <td>12</td>
+                            <td>1</td>
+                            <td>32</td>
+                            <td>Caesar/SC</td>
+                            <td>Tidak</td>
+                            <td>Ya</td>
+                            <td>3</td>
+                            <td>8,5</td>
+                            <td>Tidak</td>
+                            <td>-</td>
+                            <td>Tidak</td>
+                            <td>Tidak</td>
+                            <td>Belum</td>
+                            <td>-</td>
+                            <td>Tidak</td>
+                            <td>Tidak</td>
+                            <td>Tidak</td>
+                            <td>Konseling Menyusui</td>
                             <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio facere voluptatem ad praesentium iste aspernatur sed cupiditate, repellat accusamus possimus tempore libero qui saepe a quia fuga magnam quos excepturi.</td>
-                            <td></td>
-                            <td></td>
+                            <td>Ya</td>
+                            <td>Ya</td>
                             </tr>
                         </tbody>
                         </table>
