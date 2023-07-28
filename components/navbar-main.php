@@ -19,9 +19,8 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="kegiatan.php">Kegiatan</a></li>
-            <li><a class="dropdown-item" href="daftar.php">Daftar Konseling</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="riwayat.php">Riwayat</a></li>
+            <li><a class="dropdown-item" href="daftar.php">Daftar Konseling</a></li>
           </ul>
         </li>
         <li class="nav-item">

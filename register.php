@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <?php
                 if (!empty($successMessage)){
                   echo "
-                  <div class='mt-3 alert alert-warning alert-dismissible fade show' role='alert'>
+                  <div class='mt-3 alert alert-success alert-dismissible fade show' role='alert'>
                   <strong>$successMessage</strong>
                   <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                   </div>
