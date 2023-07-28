@@ -75,7 +75,6 @@
               }
             ?>
             <h3 class="mb-2">Edit akun</h3>
-            <p>Anda hanya dapat merubah nama dan password. Jika ingin mengganti email, silahkan buat akun baru</p>
             </div>
           </div>
           <hr class="hr" />
@@ -86,14 +85,15 @@
                 <label for="nama" class="form-label">Nama Anda</label>
                 <input class="form-control" type="text" name="nama" value="<?php echo $nama ?>" id="nama">
             </div>
-            <div class="mb-5">
+            <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input class="form-control" type="password" name="password" value="<?php echo $password ?>" id="password">
             </div>
-            <div class="mb-5">
+            <div class="mb-3">
                 <label for="konfirm_password" class="form-label">Konfirmasi Password</label>
                 <input class="form-control" type="password" name="konfirm_password" value="<?php echo $konfirm_password ?>" id="konfirm_password">
             </div>
+            <p class="opacity-75 mb-5">*Anda hanya dapat merubah nama dan password. Jika ingin mengganti email, silahkan buat akun baru</p>
             </form>
             <button class="btn-1" onclick="window.location.href='profil.php';">Kembali</button>
             <button class="btn-2" form="user" type="submit">Ubah</button>

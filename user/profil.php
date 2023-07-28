@@ -38,7 +38,7 @@
             $row = $hasil->fetch_assoc();
             ?>
             <h3 class="mb-2">Hallo, <?php echo $row["nama"] ?></h3>
-            <p>Jika ingin mengubah data akun, pilih edit akun</p>
+            <p>Jika ingin mengubah data akun, klik edit akun</p>
             <button class="btn-2" onclick="window.location.href='profil-edit.php';">Edit Akun <i class="bi bi-pencil"></i></button>
             </div>
           </div>

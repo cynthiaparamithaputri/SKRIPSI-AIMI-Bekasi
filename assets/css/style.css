@@ -602,6 +602,20 @@ section.container {
     background-color: var(--third-color);
     color: var(--primary-color);
 }
+
+.whatsapp-button {
+    display: inline-block;
+    background-color: #25D366;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+}
   
 /* Responsive untuk kolom dengan keterangan panjang */
 .table-responsive {
