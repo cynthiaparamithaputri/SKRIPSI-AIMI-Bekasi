@@ -3,6 +3,33 @@
       if(!isset($_SESSION['login_admin'])) {
         header("location: login-admin.php");
       }else{
+
+        include '../koneksi.php';
+
+        $no = 1;
+        
+        $sql = "SELECT * FROM t_kegiatan";
+        $hasil = mysqli_query($koneksi, $sql);
+
+        function translate($day) {
+          $translations = array(
+              'Monday'    => 'Senin',
+              'Tuesday'   => 'Selasa',
+              'Wednesday' => 'Rabu',
+              'Thursday'  => 'Kamis',
+              'Friday'    => 'Jumat',
+              'Saturday'  => 'Sabtu',
+              'Sunday'    => 'Minggu'
+          );
+      
+          if (array_key_exists($day, $translations)) {
+              return $translations[$day];
+          } else {
+              return 'Hari tidak valid';
+          }
+      }
+
+
         ?>
 
 <!doctype html>
@@ -52,21 +79,39 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php 
+ 
+                          while ($row = $hasil->fetch_assoc()) {
+
+                            $no = $no++;
+                            $tanggal = $row['jadwal'];
+                            $timestamp = strtotime($row['jadwal']);
+                            $day = date('l', $timestamp);
+                            
+                            
+                          $translatedDay = translate($day);
+                          $jadwal = "$translatedDay, $tanggal";
+                            
+
+                            echo "
                             <tr>
-                            <th scope="row">1</th>
-                            <td>IG Live Sharing Session</td>
-                            <td>Minggu, 14 Mei 2023</td>
-                            <td class="col-md-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt similique ratione reiciendis maiores enim. Consequuntur rem quia totam laudantium inventore corrupti possimus molestiae, reiciendis ipsam officiis, molestias odio ut quo.</td>
-                            <td>
-                            <div class="keg-image text-center">
-                                <img src="../assets/img/kegiatan/kegiatan-1.webp" class="rounded" alt="..." />
-                            </div>
-                            </td>
-                            <td class="text-center">
-                            <button class="btn-sm btn-primary" onclick="window.location.href='kegiatan-edit.php';">Sunting</button><br/>
-                            <button class="btn-sm btn-danger" onclick="window.location.href='kegiatan-hapus.php';">Hapus</button>
-                            </td>
+                              <th scope='row'>$no</th>
+                              <td>$row[judul]</td>
+                              <td>$jadwal</td>
+                              <td class='col-md-6'>$row[deskripsi]</td>
+                              <td>
+                              <div class='keg-image text-center'>
+                                  <img src='../$row[gambar]' class='rounded' alt='...' />
+                              </div>
+                              </td>
+                              <td class='text-center'>
+                              <button class='btn-sm btn-primary' onclick=window.location.href='kegiatan-edit.php?id_kegiatan=$row[id_kegiatan]'>Sunting</button><br/>
+                              <button class='btn-sm btn-danger' onclick=window.location.href='kegiatan-hapus.php?id_kegiatan=$row[id_kegiatan]'>Hapus</button>
+                              </td>
                             </tr>
+                            ";
+                          }
+                          ?>
                         </tbody>
                         </table>
                         </div>

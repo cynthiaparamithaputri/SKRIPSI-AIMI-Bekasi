@@ -47,7 +47,7 @@
 
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $waktu_daftar = date('Y-m-d');
+                $waktu_daftar = date('Y-m-d H:i:s');
                 $nama_ibu = $_POST['nama_ibu'];
                 $alamat = $_POST['alamat'];
                 $telp = $_POST['telp'];
@@ -180,17 +180,17 @@
 
             <div class="mb-4">
                 <label for="bayi2" class="form-label">Usia Bayi Saat Ini (Dalam Bentuk Bulan)</label>
-                <input type="text" class="form-control" id="bayi2" name="bayi2" value="<?php echo $bayi2 ?>" />
+                <input type="text" class="form-control" id="bayi2" name="bayi2" placeholder="Contoh: 12" value="<?php echo $bayi2 ?>" />
             </div>
 
             <div class="mb-4">
                 <label for="bayi3" class="form-label">Bayi Anak Ke</label>
-                <input type="text" class="form-control" id="bayi3" name="bayi3" value="<?php echo $bayi3 ?>" />
+                <input type="text" class="form-control" id="bayi3" name="bayi3" placeholder="Contoh: 1" value="<?php echo $bayi3 ?>" />
             </div>
 
             <div class="mb-4">
                 <label for="bayi4" class="form-label">Usia Kehamilan Saat Bayi Lahir (Minggu)</label>
-                <input type="text" class="form-control" id="bayi4" name="bayi4" value="<?php echo $bayi4 ?>" />
+                <input type="text" class="form-control" id="bayi4" name="bayi4" placeholder="Contoh: 37" value="<?php echo $bayi4 ?>" />
             </div>
 
             <hr class="hr" />
@@ -252,11 +252,11 @@
             <div class="row mb-4">
                 <div class="col">
                     <label for="berat" class="form-label">Berat Bayi Saat Lahir (Kg)</label>
-                    <input type="tel" id="berat" class="form-control" name="berat" value="<?php echo $berat ?>">
+                    <input type="tel" id="berat" class="form-control" name="berat" placeholder="Contoh: 3.5" value="<?php echo $berat ?>">
                 </div>
                 <div class="col">
                     <label for="berat2" class="form-label">Berat Bayi Saat Ini (Kg)</label>
-                    <input type="tel" id="berat2" class="form-control" name="berat2" value="<?php echo $berat2 ?>">
+                    <input type="tel" id="berat2" class="form-control" name="berat2" placeholder="Contoh: 8" value="<?php echo $berat2 ?>">
                 </div>
             </div>
 

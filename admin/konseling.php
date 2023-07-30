@@ -3,7 +3,16 @@
       if(!isset($_SESSION['login_admin'])) {
         header("location: login-admin.php");
       }else{
-        ?>
+
+        include '../koneksi.php';
+
+        $no = 1;
+        
+        $sql = "SELECT * FROM t_konseling";
+        $hasil = mysqli_query($koneksi, $sql);
+        $jumlah = mysqli_num_rows($hasil);
+
+  ?>
 
 <!doctype html>
 <html lang="en">
@@ -62,25 +71,46 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>14/07/2023 11:25</td>
-                            <td>Cynthia Paramitha</td>
-                            <td>Konseling Menyusui</td>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt similique ratione reiciendis maiores enim. Consequuntur rem quia totam laudantium inventore corrupti possimus molestiae, reiciendis ipsam officiis, molestias odio ut quo.</td>
-                            <td>Selesai</td>
-                            <td>14/07/2023 11:25</td>
-                            <td class="col-md-2">Cynthia Paramitha Putri</td>
-                            <td class="text-center">
-                            <button class="btn-sm btn-primary" onclick="window.location.href='konselor-set.php';">Konselor</button><br/>
-                            <button class="btn-sm btn-success" onclick="window.location.href='konseling-detail.php';">Lihat Detail</button>
-                            </td>
-                            </tr>
+                          <?php 
+
+                            
+                            while ($row = $hasil->fetch_assoc()) {
+
+                              $no = $no++;
+                              $waktu_selesai = $row['waktu_selesai'];
+
+                              if ($waktu_selesai == '0000-00-00 00:00:00' ) {
+                                $waktu_selesai = "";
+                              }
+
+                              $id_petugas = $row['id_petugas'];
+                              $sql2 = "SELECT * FROM t_admin WHERE id_petugas = '$id_petugas'";
+                              $hasil2 = mysqli_query($koneksi, $sql2);
+                              $row2 = $hasil2->fetch_assoc();
+
+                              echo "
+                              <tr>
+                                <th scope='row'>$no</th>
+                                <td>$row[waktu_daftar]</td>
+                                <td>$row[nama_ibu]</td>
+                                <td>$row[jenis_konseling]</td>
+                                <td>$row[masalah]</td>
+                                <td>$row[status]</td>
+                                <td>$waktu_selesai</td>
+                                <td class='col-md-2'>$row2[nama]</td>
+                                <td class='text-center'>
+                                <button class='btn-sm btn-primary' onclick=window.location.href='konselor-set.php?id_konseling=$row[id_konseling]'>Konselor</button><br/>
+                                <button class='btn-sm btn-success' onclick=window.location.href='konseling-detail.php?id_konseling=$row[id_konseling]'>Lihat Detail</button>
+                                </td>
+                              </tr>
+                              ";
+                            }
+                            ?>
                         </tbody>
                         </table>
                         </div>
                         <div class="d-flex justify-content-start">
-                        <p class="fw-bold">Jumlah Data: 1</p>
+                        <p class="fw-bold">Jumlah Data: <?php echo $jumlah ?></p>
                         </div>
                     </div>
                     </div>
