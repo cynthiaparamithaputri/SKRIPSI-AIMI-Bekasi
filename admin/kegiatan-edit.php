@@ -17,7 +17,7 @@
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         
             if (!isset($_GET["id_kegiatan"])){
-                header("location: kegiatann.php");
+                header("location: kegiatan.php");
                 exit;
             }
         
@@ -93,7 +93,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Tambah Kegiatan</title>
+    <title>Edit Kegiatan</title>
     <?php
     //link eksternal
     include "../components/head-links-other.php";
@@ -110,7 +110,7 @@
                 <div class="container">
                 <div class="row my-5">
                     <div class="col text-left">
-                    <h3 class="mb-2 text-sm">Tambah Kegiatan Baru</h3>
+                    <h3 class="mb-2 text-sm">Edit Kegiatan</h3>
                     <p>Isi keterangan secukupnya</p>
                     </div>
                     <hr class="hr" />

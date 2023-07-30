@@ -3,6 +3,14 @@
       if(!isset($_SESSION['login_admin'])) {
         header("location: login-admin.php");
       }else{
+
+        include '../koneksi.php';
+
+        $no = 1;
+        
+        $sql = "SELECT * FROM t_admin WHERE role = 'konselor'";
+        $hasil = mysqli_query($koneksi, $sql);
+
         ?>
 
 <!doctype html>
@@ -52,17 +60,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>83102</td>
-                            <td class="col-md-2">Cynthia Paramitha Putri</td>
-                            <td>081288746848</td>
-                            <td>cynthiaparamithaputri@gmail.com</td>
-                            <td class="text-center">
-                            <button class="btn-sm btn-primary" onclick="window.location.href='konselor-edit.php';">Sunting</button><br/>
-                            <button class="btn-sm btn-danger" onclick="window.location.href='konselor-hapus.php';">Hapus</button>
+                        <?php 
+ 
+                        while ($row = $hasil->fetch_assoc()) {
+
+                          $no = $no++;
+                          
+
+                          echo "
+                          <tr>
+                            <th scope='row'>$no</th>
+                            <td>$row[id_unik]</td>
+                            <td class='col-md-2'>$row[nama]</td>
+                            <td>$row[no_hp]</td>
+                            <td>$row[email]</td>
+                            <td class='text-center'>
+                            <button class='btn-sm btn-primary' onclick=window.location.href='konselor-edit.php?id_petugas=$row[id_petugas]'>Sunting</button><br/>
+                            <button class='btn-sm btn-success' onclick=window.location.href='konselor-reset.php?id_petugas=$row[id_petugas]'>Reset</button><br/>
+                            <button class='btn-sm btn-danger' onclick=window.location.href='konselor-hapus.php?id_petugas=$row[id_petugas]'>Hapus</button>
                             </td>
-                            </tr>
+                          </tr>
+                          ";
+                        }
+                        ?>
                         </tbody>
                         </table>
                         </div>
