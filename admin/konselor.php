@@ -6,7 +6,7 @@
 
         include '../koneksi.php';
 
-        $no = 1;
+        $no = 0;
         
         $sql = "SELECT * FROM t_admin WHERE role = 'konselor'";
         $hasil = mysqli_query($koneksi, $sql);
@@ -64,7 +64,7 @@
  
                         while ($row = $hasil->fetch_assoc()) {
 
-                          $no = $no++;
+                          $no = ++$no;
                           
 
                           echo "
@@ -75,7 +75,7 @@
                             <td>$row[no_hp]</td>
                             <td>$row[email]</td>
                             <td class='text-center'>
-                            <button class='btn-sm btn-primary' onclick=window.location.href='konselor-edit.php?id_petugas=$row[id_petugas]'>Sunting</button><br/>
+                            <button class='btn-sm btn-primary' onclick=window.location.href='konselor-edit.php?id_petugas=$row[id_petugas]'>Edit</button><br/>
                             <button class='btn-sm btn-success' onclick=window.location.href='konselor-reset.php?id_petugas=$row[id_petugas]'>Reset</button><br/>
                             <button class='btn-sm btn-danger' onclick=window.location.href='konselor-hapus.php?id_petugas=$row[id_petugas]'>Hapus</button>
                             </td>

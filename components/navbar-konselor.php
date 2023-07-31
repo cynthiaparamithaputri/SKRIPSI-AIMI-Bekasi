@@ -16,6 +16,18 @@
         <li class="nav-item">
           <a class="nav-link" href="feedback.php">Feedback</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pengaturan
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="profil.php">Akun</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="password-edit.php">Ubah Password</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="profil-edit.php">Edit Akun</a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Keluar</a>
         </li>

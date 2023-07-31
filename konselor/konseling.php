@@ -1,3 +1,26 @@
+<?php 
+    session_start();
+      if(!isset($_SESSION['login_konselor'])) {
+        header("location: login-konselor.php");
+      }else{
+
+        include '../koneksi.php';
+
+        $id_unik = $_SESSION['login_konselor'];
+        $sql = "SELECT * FROM t_admin WHERE id_unik = '$id_unik'";
+        $hasil = mysqli_query($koneksi, $sql);
+        $row = $hasil->fetch_assoc();
+        $id_petugas = $row['id_petugas'];
+
+        $no = 0;
+        $status_btn = "";
+        
+        $sql2 = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas'";
+        $hasil2 = mysqli_query($koneksi, $sql2);
+        $jumlah = mysqli_num_rows($hasil2);
+
+  ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -54,24 +77,47 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            <th scope="row">1234</th>
-                            <td>14/07/2023 11:25</td>
-                            <td>Cynthia Paramitha</td>
-                            <td>Konseling Menyusui</td>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt similique ratione reiciendis maiores enim. Consequuntur rem quia totam laudantium inventore corrupti possimus molestiae, reiciendis ipsam officiis, molestias odio ut quo.</td>
-                            <td>Selesai</td>
-                            <td>14/07/2023 11:25</td>
-                            <td class="text-center">
-                            <button class="btn-sm btn-primary" onclick="window.location.href='status-set.php';" disabled>Selesai</button><br/>
-                            <button class="btn-sm btn-success" onclick="window.location.href='konseling-detail.php';">Lihat Detail</button>
+                        <?php 
+
+                            
+                        while ($row2 = $hasil2->fetch_assoc()) {
+
+                          $no = ++$no;
+                          $waktu_selesai = $row2['waktu_selesai'];
+                          $status = $row2['status'];
+
+                          if ($waktu_selesai == '0000-00-00 00:00:00' ) {
+                            $waktu_selesai = "";
+                          }
+
+                          if ($status == 'Selesai' ) {
+                            $status_btn = "disabled";
+                          } else {
+                            $status_btn = "";
+                          }
+
+                          echo "
+                          <tr>
+                            <th scope='row'>$row2[id_konseling]</th>
+                            <td>$row2[waktu_daftar]</td>
+                            <td>$row2[nama_ibu]</td>
+                            <td>$row2[jenis_konseling]</td>
+                            <td>$row2[masalah]</td>
+                            <td>$row2[status]</td>
+                            <td>$waktu_selesai</td>
+                            <td class='text-center'>
+                            <button class='btn-sm btn-primary' onclick=window.location.href='status-set.php?id_konseling=$row2[id_konseling]' $status_btn>Selesai</button><br/>
+                            <button class='btn-sm btn-success' onclick=window.location.href='konseling-detail.php?id_konseling=$row2[id_konseling]'>Lihat Detail</button>
                             </td>
-                            </tr>
+                          </tr>
+                          ";
+                        }
+                        ?>
                         </tbody>
                         </table>
                         </div>
                         <div class="d-flex justify-content-start">
-                        <p class="fw-bold">Jumlah Data: 1</p>
+                        <p class="fw-bold">Jumlah Data: <?php echo $jumlah ?></p>
                         </div>
                     </div>
                     </div>
@@ -82,3 +128,6 @@
     </div>
   </body>
 </html>
+<?php
+}
+?>

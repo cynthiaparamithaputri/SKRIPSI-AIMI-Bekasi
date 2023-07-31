@@ -6,7 +6,7 @@
 
         include '../koneksi.php';
 
-        $no = 1;
+        $no = 0;
         
         $sql = "SELECT * FROM t_kegiatan";
         $hasil = mysqli_query($koneksi, $sql);
@@ -83,7 +83,7 @@
  
                           while ($row = $hasil->fetch_assoc()) {
 
-                            $no = $no++;
+                            $no = ++$no;
                             $tanggal = $row['jadwal'];
                             $timestamp = strtotime($row['jadwal']);
                             $day = date('l', $timestamp);
@@ -105,7 +105,7 @@
                               </div>
                               </td>
                               <td class='text-center'>
-                              <button class='btn-sm btn-primary' onclick=window.location.href='kegiatan-edit.php?id_kegiatan=$row[id_kegiatan]'>Sunting</button><br/>
+                              <button class='btn-sm btn-primary' onclick=window.location.href='kegiatan-edit.php?id_kegiatan=$row[id_kegiatan]'>Edit</button><br/>
                               <button class='btn-sm btn-danger' onclick=window.location.href='kegiatan-hapus.php?id_kegiatan=$row[id_kegiatan]'>Hapus</button>
                               </td>
                             </tr>

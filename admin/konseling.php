@@ -6,7 +6,8 @@
 
         include '../koneksi.php';
 
-        $no = 1;
+        $no = 0;
+        $status_btn = "";
         
         $sql = "SELECT * FROM t_konseling";
         $hasil = mysqli_query($koneksi, $sql);
@@ -76,11 +77,18 @@
                             
                             while ($row = $hasil->fetch_assoc()) {
 
-                              $no = $no++;
+                              $no = ++$no;
                               $waktu_selesai = $row['waktu_selesai'];
+                              $status = $row['status'];
 
                               if ($waktu_selesai == '0000-00-00 00:00:00' ) {
                                 $waktu_selesai = "";
+                              }
+
+                              if ($status == 'Selesai' ) {
+                                $status_btn = "disabled";
+                              } else {
+                                $status_btn = "";
                               }
 
                               $id_petugas = $row['id_petugas'];
@@ -99,7 +107,7 @@
                                 <td>$waktu_selesai</td>
                                 <td class='col-md-2'>$row2[nama]</td>
                                 <td class='text-center'>
-                                <button class='btn-sm btn-primary' onclick=window.location.href='konselor-set.php?id_konseling=$row[id_konseling]'>Konselor</button><br/>
+                                <button class='btn-sm btn-primary' onclick=window.location.href='konselor-set.php?id_konseling=$row[id_konseling]' $status_btn>Konselor</button><br/>
                                 <button class='btn-sm btn-success' onclick=window.location.href='konseling-detail.php?id_konseling=$row[id_konseling]'>Lihat Detail</button>
                                 </td>
                               </tr>

@@ -1,10 +1,18 @@
+<?php 
+    session_start();
+      if(!isset($_SESSION['login_konselor'])) {
+        header("location: login-konselor.php");
+      }else{
+
+  ?>
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Admin</title>
+    <title>Konselor</title>
     <?php
     //link eksternal
     include "../components/head-links-other.php";
@@ -26,7 +34,7 @@
         </header>
           <section class="container mt-5">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Konseling</h5>
@@ -35,12 +43,21 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Feedback</h5>
                     <p class="card-text">Phasellus sit amet ex at libero vulputate gravida.</p>
                     <button class="btn-2" onclick="window.location.href='konseling.php';">Mulai</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Pengaturan Akun</h5>
+                    <p class="card-text">Phasellus sit amet ex at libero vulputate gravida.</p>
+                    <button class="btn-2" onclick="window.location.href='profil.php';">Mulai</button>
                   </div>
                 </div>
               </div>
@@ -50,3 +67,6 @@
     </div>
   </body>
 </html>
+<?php
+}
+?>
