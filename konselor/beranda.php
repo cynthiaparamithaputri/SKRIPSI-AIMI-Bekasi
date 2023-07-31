@@ -1,7 +1,7 @@
 <?php 
     session_start();
       if(!isset($_SESSION['login_konselor'])) {
-        header("location: login-konselor.php");
+        header("location: ../login-admin.php");
       }else{
 
   ?>

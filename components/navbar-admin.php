@@ -34,6 +34,9 @@
           </ul>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="profil.php">Admin</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="logout.php">Keluar</a>
         </li>
       </ul>

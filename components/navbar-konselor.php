@@ -24,8 +24,6 @@
             <li><a class="dropdown-item" href="profil.php">Akun</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="password-edit.php">Ubah Password</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="profil-edit.php">Edit Akun</a></li>
           </ul>
         </li>
         <li class="nav-item">

@@ -1,7 +1,7 @@
 <?php 
     session_start();
       if(!isset($_SESSION['login_konselor'])) {
-        header("location: login-konselor.php");
+        header("location: ../login-admin.php");
       }else{
 
         include '../koneksi.php';
@@ -63,7 +63,7 @@
     <div class="admin">
         <?php
         //navbar
-        include "../components/navbar-admin.php";
+        include "../components/navbar-konselor.php";
         ?>
         <div class="user-app">
             <div class="konselor w-100 min-vh-100 mt-5">

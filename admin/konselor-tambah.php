@@ -1,7 +1,7 @@
 <?php 
     session_start();
       if(!isset($_SESSION['login_admin'])) {
-        header("location: login-admin.php");
+        header("location: ../login-admin.php");
       }else{
 
         include '../koneksi.php';
@@ -17,7 +17,7 @@
                 $nama = $_POST['nama'];
                 $telp = $_POST['telp'];
                 $email = $_POST['email'];
-                $password = "Kon$3ling";
+                $password = "41m1bekasi";
                 $role = "konselor";
 
                 function generateId() {
