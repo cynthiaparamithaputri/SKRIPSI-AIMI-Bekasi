@@ -23,7 +23,6 @@
         <a href="tentang.php">Tentang</a>
         <a href="kegiatan.php">Kegiatan</a>
         <a href="daftar.php">Daftar Konseling</a>
-        <a href="riwayat.php">Riwayat</a>
       </div>
       <div class="col col-lg-4 col-12 mt-lg-0 mt-5">
         <h5 class="fw-bold mb-3">Subscribe untuk info lebih</h5>

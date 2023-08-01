@@ -32,10 +32,10 @@
                     break;
                   }
               
-                $sql2 = "UPDATE t_konseling SET status = '$status', waktu_selesai = '$waktu_selesai' WHERE id_konseling = '$id_konseling'";
-                $hasil2 = $koneksi->query($sql2);
+                $sql = "UPDATE t_konseling SET status = '$status', waktu_selesai = '$waktu_selesai' WHERE id_konseling = '$id_konseling'";
+                $hasil = $koneksi->query($sql);
 
-                if (!$hasil2) {
+                if (!$hasil) {
                     $errorMessage = "Perubahan status gagal karena sistem bermasalah!";
                     break;
                 }

@@ -12,7 +12,6 @@
         $row = $hasil->fetch_assoc();
         $id_petugas = $row['id_petugas'];
 
-        $no = 0;
         $status_btn = "";
         
         $sql2 = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas'";
@@ -82,7 +81,6 @@
                             
                         while ($row2 = $hasil2->fetch_assoc()) {
 
-                          $no = ++$no;
                           $waktu_selesai = $row2['waktu_selesai'];
                           $status = $row2['status'];
 
