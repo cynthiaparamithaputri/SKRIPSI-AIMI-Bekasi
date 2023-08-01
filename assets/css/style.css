@@ -207,35 +207,21 @@ header {
     color: var(--primary-color);
 }
 
-.beranda .kegiatan-user .row:nth-child(2), .user-app .kegiatan-user .row:nth-child(2) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-    padding-inline: 10px;
-}
+.card {
+    height: 300px;
+  }
 
-.beranda .kegiatan-user .row:nth-child(2) img, .user-app .kegiatan-user .row:nth-child(2) img {
-    height: 360px;
-}
+  .card-body {
+    overflow-y: auto;
+    max-height: calc(100% - 40px);
+  }
 
-.beranda .kegiatan-user .row:nth-child(2) .col, .user-app .kegiatan-user .row:nth-child(2) .col {
-    background-color: var(--sixth-color);
-    padding: 0;
-}
-
-.beranda .kegiatan-user .row:nth-child(2) h5, .user-app .kegiatan-user .row:nth-child(2) h5 {
-    color: var(--color-text);
-    font-weight: bold;
-    line-height: 1.5;
-}
-
-.beranda .kegiatan-user .ket a, .user-app .kegiatan-user .ket a {
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-}
+  .card-img-top {
+    min-height: 350px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+  }
 
 .beranda .kegiatan-user .row:nth-child(3) {
     padding-top: 100px;

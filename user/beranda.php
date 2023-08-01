@@ -3,6 +3,30 @@
       if(!isset($_SESSION['login_user'])) {
         header("location: ../login.php");
       }else{
+
+        include '../koneksi.php';
+        
+        $sql = "SELECT * FROM t_kegiatan ORDER BY id_kegiatan DESC LIMIT 3";
+        $hasil = mysqli_query($koneksi, $sql);
+
+        function translate($day) {
+          $translations = array(
+              'Monday'    => 'Senin',
+              'Tuesday'   => 'Selasa',
+              'Wednesday' => 'Rabu',
+              'Thursday'  => 'Kamis',
+              'Friday'    => 'Jumat',
+              'Saturday'  => 'Sabtu',
+              'Sunday'    => 'Minggu'
+          );
+      
+          if (array_key_exists($day, $translations)) {
+              return $translations[$day];
+          } else {
+              return 'Hari tidak valid';
+          }
+      }
+
         ?>
 
 <!doctype html>
@@ -46,18 +70,35 @@
                 <p class="text-center">Berikut adalah jadwal kegiatan-kegiatan terbaru yang dapat diikuti pada ibu menyusui Bekasi</p>
                 </div>
               </div>
-              <div class="row">
-                <div class="col">
-                    <img src="../assets/img/kegiatan/kegiatan-1.webp" alt="unsplash.com" class="w-100 mb-3" />
-                    <div class="card-title mb-5 px-3">
-                    <h5>IG Live Sharing Session</h5>
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+              <?php 
+                            
+              while ($row = $hasil->fetch_assoc()) {
+
+                $tanggal = $row['jadwal'];
+                $timestamp = strtotime($row['jadwal']);
+                $day = date('l', $timestamp);
+                  
+                  
+                $translatedDay = translate($day);
+                $jadwal = "$translatedDay, $tanggal";
+
+                echo "
+                  <div class='col'>
+                  <div class='card h-100'>
+                    <img src='../$row[gambar]' class='card-img-top' alt='...'>
+                    <div class='card-body'>
+                      <h5 class='card-title'>$row[judul]</h5>
+                      <p class='card-text'>$row[deskripsi]</p>
                     </div>
-                    <hr class="hr" />
-                    <div class="ket d-flex justify-content-between align-items-center px-3 pb-3">
-                      <p class="m-0 text-primary fw-bold">Minggu, 14 Mei 2023</p>
-                      <a href="">Detail</a>
+                    <div class='card-footer'>
+                      <p class='text-body-primary'>$jadwal</p>
                     </div>
+                  </div>
                 </div>
+                ";
+              }
+              ?>
               </div>
               <div class="row">
                 <div class="col text-center">

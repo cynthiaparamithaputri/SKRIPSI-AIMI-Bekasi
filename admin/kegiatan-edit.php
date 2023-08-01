@@ -109,9 +109,10 @@
             <div class="kegiatan w-100 min-vh-100 mt-5">
                 <div class="container">
                 <div class="row my-5">
-                    <div class="col text-left">
+                    <div class="col text-left mb-3">
                     <h3 class="mb-2 text-sm">Edit Kegiatan</h3>
                     <p>Isi keterangan secukupnya</p>
+                    <button class="btn-1" onclick="window.location.href='gambar-unset.php?id_kegiatan=<?php echo $id_kegiatan ?>';">Hapus Gambar <i class="bi bi-trash"></i></button>
                     </div>
                     <hr class="hr" />
                 </div>
