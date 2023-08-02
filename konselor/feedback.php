@@ -16,6 +16,25 @@
         $hasil2 = mysqli_query($koneksi, $sql2);
         $jumlah = mysqli_num_rows($hasil2);
 
+        $keyword = "";
+
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+          // Filter berdasarkan bulan, tahun, atau kata kunci
+          if (isset($_GET['keyword'])) {
+            $keyword = $_GET['keyword'];
+          }
+
+        $sql2 = "SELECT * FROM t_konseling WHERE 1=1";
+
+        // Tambahkan kondisi untuk filter kata kunci
+        if (!empty($keyword)) {
+            $sql2 .= " AND (LOWER(id_konseling) LIKE '%$keyword%' OR LOWER(nama_ibu) LIKE '%$keyword%' OR LOWER(jenis_konseling) LIKE '%$keyword%' OR LOWER(masalah) LIKE '%$keyword%' OR LOWER(feedback) LIKE '%$keyword%')";
+        }
+
+        $hasil2 = mysqli_query($koneksi, $sql2);
+        $jumlah = mysqli_num_rows($hasil2);
+      }
+
   ?>
 
 <!doctype html>
@@ -55,7 +74,14 @@
                         <div class="d-flex justify-content-end">
                             <div class="row align-items-center">
                                 <div class="col">
-                                
+                                <!-- Filter Form -->
+                                <form method="get">
+                                  <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Cari kata kunci" name="keyword">
+                                    <button class="btn btn-primary" type="submit">Filter</button>
+                                  </div>
+                                </form>
+                                <!-- End of Filter Form -->
                                 </div>
                             </div>
                         </div>

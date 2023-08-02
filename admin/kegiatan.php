@@ -29,6 +29,24 @@
           }
       }
 
+      $keyword = "";
+
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+          // Filter berdasarkan bulan, tahun, atau kata kunci
+          if (isset($_GET['keyword'])) {
+            $keyword = $_GET['keyword'];
+          }
+
+        $sql = "SELECT * FROM t_kegiatan WHERE 1=1";
+
+        // Tambahkan kondisi untuk filter kata kunci
+        if (!empty($keyword)) {
+            $sql .= " AND (LOWER(judul) LIKE '%$keyword%' OR LOWER(jadwal) LIKE '%$keyword%' OR LOWER(deskripsi) LIKE '%$keyword%')";
+        }
+
+        $hasil = mysqli_query($koneksi, $sql);
+      }
+
 
         ?>
 
@@ -66,6 +84,20 @@
                 <div class="row my-5">
                     <div class="col">
                     <div class="table-comp">
+                    <div class="d-flex justify-content-end">
+                            <div class="row">
+                                <div class="col">
+                                 <!-- Filter Form -->
+                                <form method="get">
+                                  <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Cari kata kunci" name="keyword">
+                                    <button class="btn btn-primary" type="submit">Filter</button>
+                                  </div>
+                                </form>
+                                <!-- End of Filter Form -->
+                                </div>
+                            </div>
+                        </div>
                         <div class="table-responsive">
                         <table class="table table-bordered">
                         <thead>
