@@ -8,7 +8,7 @@
 
         $no = 0;
         
-        $sql = "SELECT * FROM t_admin WHERE role = 'konselor'";
+        $sql = "SELECT * FROM t_admin WHERE role = 'konselor' ORDER BY t_admin.id_petugas DESC";
         $hasil = mysqli_query($koneksi, $sql);
 
         ?>
@@ -35,8 +35,8 @@
         <header class="jumbotron w-100 d-flex align-items-center">
           <div class="container text-center">
             <h1>Data Konselor</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex at libero vulputate
-              gravida. Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
+            <p>Kelola data konselor dengan menambahkan, me-reset password, atau menghapus akun konselor AIMI Bekasi</p>
+            <p><strong>Password default : 41m1bekasi</strong></p>
               <div>
                 <button class="btn-3 btn-lg" onclick="window.location.href='konselor-tambah.php';">Tambah Konselor<i class="bi bi-person-plus mx-2"></i></button>
               </div>

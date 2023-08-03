@@ -52,8 +52,9 @@
           <div class="container header-box pt-lg-5">
             <div class="row d-flex align-items-center">
               <div class="col">
-                <h1 class="mb-4">Asosiasi<br/><span class="fw-bold">Ibu Menyusui</span><br/>Indonesia</h1>
-                <p class="mb-4">Asosiasi Ibu Menyusui Indonesia (AIMI) adalah organisasi nirlaba berbasis kelompok sesama ibu menyusui dengan tujuan menyebarluaskan pengetahuan dan informasi tentang menyusui serta meningkatkan angka ibu menyusui di Indonesia.</p>
+                <h1>Asosiasi<br/><span class="fw-bold">Ibu Menyusui Indonesia</span><br/></h1>
+                <h3 class="mb-4">Cabang Bekasi</h3>
+                <p class="mb-4">Asosiasi Ibu Menyusui Indonesia (AIMI) cabang Bekasi adalah organisasi nirlaba berbasis kelompok sesama ibu menyusui dengan tujuan menyebarluaskan pengetahuan dan informasi tentang menyusui serta meningkatkan angka ibu menyusui di Bekasi.</p>
                 <div class="d-flex">
                   <button class="btn btn-1 btn-md rounded-1 me-2 mb-xs-0 mb-2" onclick="window.location.href='tentang.php';">Tentang Kami</button>
                   <button class="btn btn-2 btn-md rounded-1 me-2 mb-xs-0 mb-2" onclick="window.location.href='daftar.php';">Daftar Konseling<i class="fa-solid fa-chevron-right ms-2"></i></button>

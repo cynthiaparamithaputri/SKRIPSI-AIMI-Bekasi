@@ -12,7 +12,7 @@
         $row = $hasil->fetch_assoc();
         $id_petugas = $row['id_petugas'];
         
-        $sql2 = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas' AND feedback != ''";
+        $sql2 = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas' AND feedback != '' ORDER BY t_konseling.id_konseling DESC";
         $hasil2 = mysqli_query($koneksi, $sql2);
         $jumlah = mysqli_num_rows($hasil2);
 
@@ -30,6 +30,8 @@
         if (!empty($keyword)) {
             $sql2 .= " AND (LOWER(id_konseling) LIKE '%$keyword%' OR LOWER(nama_ibu) LIKE '%$keyword%' OR LOWER(jenis_konseling) LIKE '%$keyword%' OR LOWER(masalah) LIKE '%$keyword%' OR LOWER(feedback) LIKE '%$keyword%')";
         }
+
+        $sql2 .= " ORDER BY t_konseling.id_konseling DESC";
 
         $hasil2 = mysqli_query($koneksi, $sql2);
         $jumlah = mysqli_num_rows($hasil2);
@@ -59,8 +61,7 @@
         <header class="jumbotron w-100 d-flex align-items-center">
           <div class="container text-center">
             <h1>Feedback</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex at libero vulputate
-              gravida. Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
+            <p>Lihat feedback yang telah diberikan kepada anda oleh para pasien konseling</p>
               <div>
                 <button class="btn-3 btn-lg">Ekspor Feedback ke CSV<i class="bi bi-download mx-2"></i></button>
               </div>

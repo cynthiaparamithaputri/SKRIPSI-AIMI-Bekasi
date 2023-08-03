@@ -14,7 +14,7 @@
 
         $status_btn = "";
         
-        $sql2 = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas'";
+        $sql2 = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas' ORDER BY t_konseling.id_konseling DESC";
         $hasil2 = mysqli_query($koneksi, $sql2);
         $jumlah = mysqli_num_rows($hasil2);
 
@@ -51,6 +51,8 @@
             $sql2 .= " AND (LOWER(nama_ibu) LIKE '%$keyword%' OR LOWER(jenis_konseling) LIKE '%$keyword%' OR LOWER(masalah) LIKE '%$keyword%' OR LOWER(status) LIKE '%$keyword%')";
         }
 
+        $sql2 .= " ORDER BY t_konseling.id_konseling DESC";
+
         $hasil2 = mysqli_query($koneksi, $sql2);
         $jumlah = mysqli_num_rows($hasil2);
       }
@@ -79,8 +81,7 @@
         <header class="jumbotron w-100 d-flex align-items-center">
           <div class="container text-center">
             <h1>Data Konseling</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex at libero vulputate
-              gravida. Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
+            <p>Lihat data konseling dan isian pasien. Klik tombol selesai jika sesi konseling sudah selesai</p>
               <div>
                 <button class="btn-3 btn-lg">Ekspor Semua ke CSV<i class="bi bi-download mx-2"></i></button>
               </div>

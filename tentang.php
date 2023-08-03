@@ -33,10 +33,14 @@
             <div class="col">
             <h4 class="fw-bold">Visi AIMI</h4>
             <p>Menjadi kelompok pendukung ibu andalan masyarakat dan berperan utama dalam peningkatan angka ibu menyusui di Indonesia melalui penyelenggaraan kegiatan-kegiatan promosi, edukasi, dan advokasi mengenai menyusui.</p>
-            <h4 class="fw-bold">Misi AIMI</h4>
+            <h4 class="fw-bold mt-5">Misi AIMI</h4>
             <p>1. Meningkatkan pemahaman seluruh elemen masyarakat tentang keutamaan menyusui selama dua tahun atau lebih serta risiko pemberian formula bagi bayi melalui upaya komunikasi kreatif.
               <br/>2. Memberikan informasi, pengetahuan, dan dukungan bagi para ibu untuk menyusui bayinya secara eksklusif selama 6 bulan dan meneruskannya sampai 2 tahun atau lebih, agar setiap ibu di Indonesia memiliki pengetahuan dan informasi yang cukup akan keutamaan menyusui serta Makanan Pendamping ASI rumahan berbahan pangan lokal yang berkualitas.
               <br/>3. Memperkuat hubungan kerja sama dengan pemerintah, perusahaan, mitra gerakan, lembaga donor dan pemangku kepentingan lainnya di semua tingkatan dalam rangka menjalankan fungsi pengawasan peraturan yang mendukung para ibu untuk menyusui bayinya.</p>
+            <h4 class="fw-bold mt-5">Lokasi</h4>
+            <p>Pondok Pekayon Indah Blok D2/7 <br/>Jalan Mahoni 17, Bekasi 17148</p>
+            <h4 class="fw-bold mt-5">Kontak</h4>
+            <p><strong>Telepon</strong>: 0817-081-9508 <br/><strong>E-mail</strong>: bekasi@jabar.aimi-asi.org</p>
             </div>
           </div>
         </div>

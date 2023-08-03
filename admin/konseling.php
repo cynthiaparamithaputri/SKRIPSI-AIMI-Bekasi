@@ -9,7 +9,7 @@
         $no = 0;
         $status_btn = "";
         
-        $sql = "SELECT * FROM t_konseling";
+        $sql = "SELECT * FROM t_konseling ORDER BY t_konseling.id_konseling DESC";
         $hasil = mysqli_query($koneksi, $sql);
         $jumlah = mysqli_num_rows($hasil);
 
@@ -46,6 +46,8 @@
             $sql .= " AND (LOWER(nama_ibu) LIKE '%$keyword%' OR LOWER(jenis_konseling) LIKE '%$keyword%' OR LOWER(masalah) LIKE '%$keyword%' OR LOWER(status) LIKE '%$keyword%')";
         }
 
+        $sql .= " ORDER BY t_konseling.id_konseling DESC";
+
         $hasil = mysqli_query($koneksi, $sql);
         $jumlah = mysqli_num_rows($hasil);
       }
@@ -74,8 +76,7 @@
         <header class="jumbotron w-100 d-flex align-items-center">
           <div class="container text-center">
             <h1>Data Konseling</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex at libero vulputate
-              gravida. Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
+            <p>Tetapkan seorang konselor yang tersedia untuk menangani sesi konseling dan salurkan informasi seperti jadwal dan wadah dengan kedua pihak</p>
               <div>
                 <button class="btn-3 btn-lg">Ekspor Semua ke CSV<i class="bi bi-download mx-2"></i></button>
               </div>

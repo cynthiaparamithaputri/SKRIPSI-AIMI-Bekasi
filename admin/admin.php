@@ -9,10 +9,10 @@
         $id_unik = $_SESSION['login_admin'];
         $status_btn = "";
 
-        $sql = "SELECT * FROM t_admin WHERE id_unik = '$id_unik'";
-        $hasil = mysqli_query($koneksi, $sql);
-        $row = $hasil->fetch_assoc();
-        $hak_akses = $row['hak_akses'];
+        $sql_hak = "SELECT * FROM t_admin WHERE id_unik = '$id_unik'";
+        $hasil_hak = mysqli_query($koneksi, $sql_hak);
+        $row_hak = $hasil_hak->fetch_assoc();
+        $hak_akses = $row_hak['hak_akses'];
 
         if ($hak_akses !== "Istimewa") {
             header("location: beranda.php");
@@ -20,7 +20,7 @@
 
         $no = 0;
         
-        $sql = "SELECT * FROM t_admin WHERE role = 'admin'";
+        $sql = "SELECT * FROM t_admin WHERE role = 'admin' ORDER BY t_admin.id_petugas DESC";
         $hasil = mysqli_query($koneksi, $sql);
 
         ?>
@@ -47,8 +47,7 @@
         <header class="jumbotron w-100 d-flex align-items-center">
           <div class="container text-center">
             <h1>Data Admin</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex at libero vulputate
-              gravida. Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
+            <p>Kelola data admin dengan menambahkan, me-reset password, atau menghapus akun admin AIMI Bekasi</p>
               <div>
                 <button class="btn-3 btn-lg" onclick="window.location.href='admin-tambah.php';">Tambah Admin<i class="bi bi-person-plus mx-2"></i></button>
               </div>

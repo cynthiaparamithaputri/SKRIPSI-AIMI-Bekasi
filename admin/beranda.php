@@ -3,6 +3,16 @@
       if(!isset($_SESSION['login_admin'])) {
         header("location: ../login-admin.php");
       }else{
+
+        include '../koneksi.php';
+
+        $id_unik = $_SESSION['login_admin'];
+
+        $sql = "SELECT * FROM t_admin WHERE id_unik = '$id_unik'";
+        $hasil = mysqli_query($koneksi, $sql);
+        $row = $hasil->fetch_assoc();
+        $nama = $row['nama'];
+
         ?>
 
 <!doctype html>
@@ -26,9 +36,8 @@
         <div class="beranda min-vh-100">
         <header class="jumbotron w-100 d-flex align-items-center">
           <div class="container text-center">
-            <h1>Mulai Pengelolaanmu Sekarang Juga</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex at libero vulputate
-              gravida. Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
+            <h1>Hallo, Admin <?php echo $nama ?>!</h1>
+            <p>Selamat datang di website AIMI Bekasi sisi admin. Mulai pengelolaanmu sekarang</p>
           </div>
         </header>
           <section class="container mt-5">
@@ -37,7 +46,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Kegiatan</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="card-text">Kelola atau tambahkan kegiatan AIMI Bekasi</p>
                     <button class="btn-2" onclick="window.location.href='kegiatan.php';">Mulai</button>
                   </div>
                 </div>
@@ -46,7 +55,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Konseling</h5>
-                    <p class="card-text">Phasellus sit amet ex at libero vulputate gravida.</p>
+                    <p class="card-text">Tetapkan seorang konselor untuk jadwal konseling AIMI Bekasi</p>
                     <button class="btn-2" onclick="window.location.href='konseling.php';">Mulai</button>
                   </div>
                 </div>
@@ -55,7 +64,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Konselor</h5>
-                    <p class="card-text">Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
+                    <p class="card-text">Kelola atau tambahkan konselor AIMI Bekasi yang tersedia</p>
                     <button class="btn-2" onclick="window.location.href='konselor.php';">Mulai</button>
                   </div>
                 </div>

@@ -23,9 +23,10 @@
             <li><a class="dropdown-item" href="daftar.php">Daftar Konseling</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="riwayat.php">Riwayat</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="profil.php">Akun</a></li>
           </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="profil.php">Akun <i class="bi bi-person"></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Keluar</a>

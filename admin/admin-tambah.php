@@ -114,7 +114,7 @@
                     <hr class="hr" />
                 </div>
                 <div class="row">
-                    <form id="form-konselor" method="post">
+                    <form id="form-admin" method="post">
                     <div class="mb-4">
                         <label for="nama" class="form-label">Nama Admin</label>
                         <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama ?>" />
@@ -143,8 +143,8 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col">
-                    <button class="btn-1" onclick="window.location.href='konselor.php';">Kembali</button>
-                    <button class="btn-2" type="submit" form="form-konselor">Submit</button>
+                    <button class="btn-1" onclick="window.location.href='admin.php';">Kembali</button>
+                    <button class="btn-2" type="submit" form="form-admin">Submit</button>
                     </div>
                 </div>
                 <?php

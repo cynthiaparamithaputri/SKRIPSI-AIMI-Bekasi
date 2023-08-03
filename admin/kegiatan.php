@@ -8,7 +8,7 @@
 
         $no = 0;
         
-        $sql = "SELECT * FROM t_kegiatan";
+        $sql = "SELECT * FROM t_kegiatan ORDER BY t_kegiatan.id_kegiatan DESC";
         $hasil = mysqli_query($koneksi, $sql);
 
         function translate($day) {
@@ -44,6 +44,8 @@
             $sql .= " AND (LOWER(judul) LIKE '%$keyword%' OR LOWER(jadwal) LIKE '%$keyword%' OR LOWER(deskripsi) LIKE '%$keyword%')";
         }
 
+        $sql .= " ORDER BY t_kegiatan.id_kegiatan DESC";
+
         $hasil = mysqli_query($koneksi, $sql);
       }
 
@@ -72,8 +74,7 @@
         <header class="jumbotron w-100 d-flex align-items-center">
           <div class="container text-center">
             <h1>Data Kegiatan</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex at libero vulputate
-              gravida. Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
+            <p>Kelola seluruh data kegiatan dengan menambahkan, memperbaharui, atau menghapus kegiatan yang diselenggarakan oleh AIMI Bekasi</p>
               <div>
                 <button class="btn-3 btn-lg" onclick="window.location.href='kegiatan-tambah.php';">Tambah Kegiatan Baru<i class="bi bi-calendar-plus mx-2"></i></button>
               </div>

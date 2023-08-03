@@ -160,6 +160,11 @@ header {
     color: var(--first-color);
 }
 
+.beranda .header-box h3 {
+    font-size: 2.8rem;
+    color: var(--first-color);
+}
+
 .beranda .header-box p {
     line-height: 2;
     color: var(--primary-color);
@@ -638,11 +643,7 @@ section.container {
         background-color: transparent;
         border-radius: 0;
     }
-    .beranda .header-box h1 {
-        color: var(--text-color);
-    }
-    
-    .beranda .header-box p {
+    .beranda .header-box h1, .beranda .header-box h3, .beranda .header-box p {
         color: var(--text-color);
     }
 
@@ -674,6 +675,10 @@ section.container {
 @media screen and (max-width: 575px) {
     .beranda .header-box h1 {
         font-size: 3rem;
+    }
+
+    .beranda .header-box h3 {
+        font-size: 2rem;
     }
 }
 
