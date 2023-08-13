@@ -34,7 +34,7 @@
             $keyword = $_GET['keyword'];
           }
 
-        $sql2 = "SELECT * FROM t_konseling WHERE 1=1";
+        $sql2 = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas' AND 1=1";
 
         // Tambahkan kondisi untuk filter bulan
         if (!empty($filter_bulan)) {
