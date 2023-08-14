@@ -639,6 +639,32 @@ section.container {
     min-width: 500px;
 }
 
+/*styling pagination*/
+
+.pagination {
+    margin-top: 20px;
+}
+
+.page-item.active .page-link {
+    color: var(--primary-color);
+    background-color: var(--third-color);
+    border-color: var(--third-color);
+}
+
+.page-link {
+    color: var(--text-color);
+}
+
+.page-link:hover {
+    background-color: var(--fifth-color);
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
 
 @media screen and (max-width: 992px) {
     .beranda .header-box {

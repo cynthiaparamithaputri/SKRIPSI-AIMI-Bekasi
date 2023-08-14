@@ -7,47 +7,50 @@
         include '../koneksi.php';
 
         $no = 0;
+        $per_page = 10; // Jumlah row per halaman
+        $page = isset($_GET['page']) ? $_GET['page'] : 1; // Halaman saat ini, default 1
+        $start = ($page - 1) * $per_page; // Nilai awal untuk query LIMIT
         
-        $sql = "SELECT * FROM t_kegiatan ORDER BY t_kegiatan.id_kegiatan DESC";
+        $sql = "SELECT * FROM t_kegiatan ORDER BY t_kegiatan.id_kegiatan DESC LIMIT $start, $per_page";
         $hasil = mysqli_query($koneksi, $sql);
 
         function translate($day) {
-          $translations = array(
-              'Monday'    => 'Senin',
-              'Tuesday'   => 'Selasa',
-              'Wednesday' => 'Rabu',
-              'Thursday'  => 'Kamis',
-              'Friday'    => 'Jumat',
-              'Saturday'  => 'Sabtu',
-              'Sunday'    => 'Minggu'
-          );
-      
-          if (array_key_exists($day, $translations)) {
-              return $translations[$day];
-          } else {
-              return 'Hari tidak valid';
-          }
-      }
+            $translations = array(
+                'Monday'    => 'Senin',
+                'Tuesday'   => 'Selasa',
+                'Wednesday' => 'Rabu',
+                'Thursday'  => 'Kamis',
+                'Friday'    => 'Jumat',
+                'Saturday'  => 'Sabtu',
+                'Sunday'    => 'Minggu'
+            );
 
-      $keyword = "";
-
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-          // Filter berdasarkan bulan, tahun, atau kata kunci
-          if (isset($_GET['keyword'])) {
-            $keyword = $_GET['keyword'];
-          }
-
-        $sql = "SELECT * FROM t_kegiatan WHERE 1=1";
-
-        // Tambahkan kondisi untuk filter kata kunci
-        if (!empty($keyword)) {
-            $sql .= " AND (LOWER(judul) LIKE '%$keyword%' OR LOWER(jadwal) LIKE '%$keyword%' OR LOWER(deskripsi) LIKE '%$keyword%')";
+            if (array_key_exists($day, $translations)) {
+                return $translations[$day];
+            } else {
+                return 'Hari tidak valid';
+            }
         }
 
-        $sql .= " ORDER BY t_kegiatan.id_kegiatan DESC";
+        $keyword = "";
 
-        $hasil = mysqli_query($koneksi, $sql);
-      }
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            // Filter berdasarkan bulan, tahun, atau kata kunci
+            if (isset($_GET['keyword'])) {
+                $keyword = $_GET['keyword'];
+            }
+
+            $sql = "SELECT * FROM t_kegiatan WHERE 1=1";
+
+            // Tambahkan kondisi untuk filter kata kunci
+            if (!empty($keyword)) {
+                $sql .= " AND (LOWER(judul) LIKE '%$keyword%' OR LOWER(jadwal) LIKE '%$keyword%' OR LOWER(deskripsi) LIKE '%$keyword%')";
+            }
+
+            $sql .= " ORDER BY t_kegiatan.id_kegiatan DESC LIMIT $start, $per_page";
+
+            $hasil = mysqli_query($koneksi, $sql);
+        }
 
 
         ?>
@@ -151,6 +154,29 @@
                     </div>
                     </div>
                 </div>
+                <!-- Pagination -->
+                <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <?php
+                            $count_query = "SELECT COUNT(*) AS total FROM t_kegiatan";
+                            $count_result = mysqli_query($koneksi, $count_query);
+                            $count_row = mysqli_fetch_assoc($count_result);
+                            $total_data = $count_row['total'];
+                            $total_pages = ceil($total_data / $per_page);
+
+                            for ($i = 1; $i <= $total_pages; $i++) {
+                                echo "<li class='page-item";
+                                if ($i == $page) {
+                                    echo " active";
+                                }
+                                echo "'><a class='page-link' href='?page=$i'>$i</a></li>";
+                            }
+                            ?>
+                            <li class="page-item disabled">
+                                <span class="page-link">Halaman <?php echo $page; ?> dari <?php echo $total_pages; ?></span>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>

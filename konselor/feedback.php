@@ -11,31 +11,35 @@
         $hasil = mysqli_query($koneksi, $sql);
         $row = $hasil->fetch_assoc();
         $id_petugas = $row['id_petugas'];
+
+        $per_page = 5; // Jumlah row per halaman
+        $page = isset($_GET['page']) ? $_GET['page'] : 1; // Halaman saat ini, default 1
+        $start = ($page - 1) * $per_page; // Nilai awal untuk query LIMIT
         
-        $sql2 = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas' AND feedback != '' ORDER BY t_konseling.id_konseling DESC";
+        $sql2 = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas' AND feedback != '' ORDER BY t_konseling.id_konseling DESC LIMIT $start, $per_page";
         $hasil2 = mysqli_query($koneksi, $sql2);
         $jumlah = mysqli_num_rows($hasil2);
 
         $keyword = "";
 
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-          // Filter berdasarkan bulan, tahun, atau kata kunci
-          if (isset($_GET['keyword'])) {
-            $keyword = $_GET['keyword'];
-          }
+            // Filter berdasarkan kata kunci
+            if (isset($_GET['keyword'])) {
+                $keyword = $_GET['keyword'];
+            }
 
-        $sql2 = "SELECT * FROM t_konseling WHERE 1=1";
+            $sql2 = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas' AND feedback != ''";
 
-        // Tambahkan kondisi untuk filter kata kunci
-        if (!empty($keyword)) {
-            $sql2 .= " AND (LOWER(id_konseling) LIKE '%$keyword%' OR LOWER(nama_ibu) LIKE '%$keyword%' OR LOWER(jenis_konseling) LIKE '%$keyword%' OR LOWER(masalah) LIKE '%$keyword%' OR LOWER(feedback) LIKE '%$keyword%')";
+            // Tambahkan kondisi untuk filter kata kunci
+            if (!empty($keyword)) {
+                $sql2 .= " AND (LOWER(id_konseling) LIKE '%$keyword%' OR LOWER(nama_ibu) LIKE '%$keyword%' OR LOWER(jenis_konseling) LIKE '%$keyword%' OR LOWER(masalah) LIKE '%$keyword%' OR LOWER(feedback) LIKE '%$keyword%')";
+            }
+
+            $sql2 .= " ORDER BY t_konseling.id_konseling DESC LIMIT $start, $per_page";
+
+            $hasil2 = mysqli_query($koneksi, $sql2);
+            $jumlah = mysqli_num_rows($hasil2);
         }
-
-        $sql2 .= " ORDER BY t_konseling.id_konseling DESC";
-
-        $hasil2 = mysqli_query($koneksi, $sql2);
-        $jumlah = mysqli_num_rows($hasil2);
-      }
 
   ?>
 
@@ -120,6 +124,29 @@
                         <div class="d-flex justify-content-start">
                         <p class="fw-bold">Jumlah Data: <?php echo $jumlah ?></p>
                         </div>
+                        <!-- Pagination -->
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center">
+                                <?php
+                                $count_query = "SELECT COUNT(*) AS total FROM t_konseling WHERE id_petugas = '$id_petugas' AND feedback != ''";
+                                $count_result = mysqli_query($koneksi, $count_query);
+                                $count_row = mysqli_fetch_assoc($count_result);
+                                $total_data = $count_row['total'];
+                                $total_pages = ceil($total_data / $per_page);
+
+                                for ($i = 1; $i <= $total_pages; $i++) {
+                                    echo "<li class='page-item";
+                                    if ($i == $page) {
+                                        echo " active";
+                                    }
+                                    echo "'><a class='page-link' href='?page=$i'>$i</a></li>";
+                                }
+                                ?>
+                                <li class="page-item disabled">
+                                    <span class="page-link">Halaman <?php echo $page; ?> dari <?php echo $total_pages; ?></span>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                     </div>
                 </div>

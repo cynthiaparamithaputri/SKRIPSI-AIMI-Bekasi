@@ -85,7 +85,7 @@
                     <img src='$row[gambar]' class='card-img-top' alt='...'>
                     <div class='card-body'>
                       <h5 class='card-title'>$row[judul]</h5>
-                      <p class='card-text'>$row[deskripsi]</p>
+                      <p class='card-text' style='white-space: pre-line;'>$row[deskripsi]</p>
                     </div>
                     <div class='card-footer'>
                       <p class='text-body-primary'>$jadwal</p>

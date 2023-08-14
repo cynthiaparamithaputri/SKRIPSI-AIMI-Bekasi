@@ -7,9 +7,11 @@
         include '../koneksi.php';
 
         $no = 0;
-        $status_btn = "";
-        
-        $sql = "SELECT * FROM t_konseling ORDER BY t_konseling.id_konseling DESC";
+        $per_page = 10; // Jumlah row per halaman
+        $page = isset($_GET['page']) ? $_GET['page'] : 1; // Halaman saat ini, default 1
+        $start = ($page - 1) * $per_page; // Nilai awal untuk query LIMIT
+
+        $sql = "SELECT * FROM t_konseling ORDER BY t_konseling.id_konseling DESC LIMIT $start, $per_page";
         $hasil = mysqli_query($koneksi, $sql);
         $jumlah = mysqli_num_rows($hasil);
 
@@ -46,7 +48,7 @@
             $sql .= " AND (LOWER(nama_ibu) LIKE '%$keyword%' OR LOWER(jenis_konseling) LIKE '%$keyword%' OR LOWER(masalah) LIKE '%$keyword%' OR LOWER(status) LIKE '%$keyword%')";
         }
 
-        $sql .= " ORDER BY t_konseling.id_konseling DESC";
+        $sql .= " ORDER BY t_konseling.id_konseling DESC LIMIT $start, $per_page";
 
         $hasil = mysqli_query($koneksi, $sql);
         $jumlah = mysqli_num_rows($hasil);
@@ -191,6 +193,29 @@
                         <div class="d-flex justify-content-start">
                         <p class="fw-bold">Jumlah Data: <?php echo $jumlah ?></p>
                         </div>
+                        <!-- Pagination -->
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center">
+                                <?php
+                                $count_query = "SELECT COUNT(*) AS total FROM t_konseling";
+                                $count_result = mysqli_query($koneksi, $count_query);
+                                $count_row = mysqli_fetch_assoc($count_result);
+                                $total_data = $count_row['total'];
+                                $total_pages = ceil($total_data / $per_page);
+
+                                for ($i = 1; $i <= $total_pages; $i++) {
+                                    echo "<li class='page-item";
+                                    if ($i == $page) {
+                                        echo " active";
+                                    }
+                                    echo "'><a class='page-link' href='?page=$i'>$i</a></li>";
+                                }
+                                ?>
+                                <li class="page-item disabled">
+                                    <span class="page-link">Halaman <?php echo $page; ?> dari <?php echo $total_pages; ?></span>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                     </div>
                 </div>
