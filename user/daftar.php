@@ -131,10 +131,7 @@
             </div>
           </div>
           <div class="row my-5 shadow-sm">
-            <p>Konseling via WhatsApp Chat/WhatsApp Call ini hanya di lakukan dalam masa pandemic #COVID19 karena AIMI sampai saat ini masih belum memungkinkan untuk melakukan konseling HOME VISIT. Konseling via WhatsApp Chat/WhatsApp Call ini TIDAK DAPAT MENGGANTIKAN PERAN KONSELING TATAP MUKA. Konselor menyusui AIMI tetap akan merujuk ke dokter atau fasilitas kesehatan apabila di perlukan.
-            <br/><br/>Jika anda berminat untuk melakukan konseling via WhatsApp Chat/WhatsApp Call, Mohon diisi formulir berikut dan admin konseling akan menghubungi Konselor Menyusui, membuat jadwal konseling dan menghubungi Anda kembali. Informasi yang Anda berikan dalam formulir konseling akan berguna bagi konselor yang akan memberikan pelayanan konseling untuk anda.
-            <br/><br/>Mulai tanggal 1 Agustus 2020 konseling via WhatsApp ini akan dikenakan donASI sebesar Rp 80.000 per konseling, DonASI dapat ditransfer ke rekening AIMI Bekasi di bank BCA KCP Buaran Jaya,  No. Rek : 6330898346, Atas nama: Nurul Indriati.
-            <br/><br/>Konseling akan dilakukan setelah Admin Konseling AIMI Cabang Bekasi menerima bukti transfer dari klien.</p>
+            <p style="white-space: pre-line;"><?php echo $info_daftar ?></p>
           </div>
           <div class="row">
             <form method="post">

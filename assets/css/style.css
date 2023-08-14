@@ -84,7 +84,7 @@
     align-items: center;
     color: var(--first-color);
     column-gap: 5px;
-    cursor: pointer;
+    cursor: text;
 }
 
 .footer .no a:hover,
@@ -555,6 +555,19 @@ section.container {
     background-color: #e42222;
 }
 
+*.btn-4 {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--first-color);
+    border: 1px solid var(--first-color);
+    color: var(--third-color);
+}
+
+*.btn-4:hover {
+    background-color: var(--fifth-color);
+    border: 1px solid var(--fifth-color);
+}
+
 *.btn-3 {
     padding: 5px 10px;
     border-radius: 5px;
@@ -596,8 +609,8 @@ section.container {
 
 .whatsapp-button {
     display: inline-block;
-    background-color: #25D366;
-    color: #FFFFFF;
+    background-color: var(--first-color);
+    color: var(--color-text);
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -605,7 +618,7 @@ section.container {
 }
 
 .whatsapp-button:hover {
-    background-color: #128C7E;
+    background-color: var(--fifth-color);
 }
   
 /* Responsive untuk kolom dengan keterangan panjang */

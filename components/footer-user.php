@@ -3,17 +3,17 @@
     <div class="row d-flex justify-content-between">
       <div class="col col-lg-6 col-12">
       <h3 class="fw-bold">AIMI Bekasi</h3>
-      <p class="desc">Asosiasi Ibu Menyusui Indonesia (AIMI) cabang Bekasi adalah organisasi nirlaba berbasis kelompok sesama ibu menyusui dengan tujuan menyebarluaskan pengetahuan dan informasi tentang menyusui serta meningkatkan angka ibu menyusui di Bekasi.</p>
+      <p class="desc" style="white-space: pre-line;"><?php echo $header ?></p>
       <div class="no mb-1 mt-4">
         <a class="text-decoration-none">
-          <i class="bi bi--whatsapp"></i>
-          <p class="m-0">0817-081-9508</p>
+          <i class="bi bi-phone"></i>
+          <p class="m-0"><?php echo $kontak ?></p>
         </a>
       </div>
       <div class="mail">
         <a class="text-decoration-none">
           <i class="bi bi-envelope"></i>
-          <p class="m-0">bekasi@jabar.aimi-asi.org</p>
+          <p class="m-0"><?php echo $email ?></p>
         </a>
       </div>
       </div>

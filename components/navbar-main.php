@@ -1,3 +1,19 @@
+<?php 
+        include 'koneksi.php';
+
+        $sql_info = "SELECT * FROM t_info WHERE id_info = 1";
+        $hasil_info = mysqli_query($koneksi, $sql_info);
+        $row_info = $hasil_info->fetch_assoc();
+        $header = $row_info['header'];
+        $tentang = $row_info['tentang'];
+        $visi = $row_info['visi'];
+        $misi = $row_info['misi'];
+        $lokasi = $row_info['lokasi'];
+        $kontak = $row_info['telp'];
+        $email = $row_info['email'];
+        
+        ?>
+
 <div class="navbar-main">
 <nav class="navbar navbar-expand-lg fixed-top px-lg-5 py-2 shadow-sm">
   <div class="container-fluid">

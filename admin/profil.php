@@ -42,9 +42,10 @@
                     
                     <?php if ($hak_akses == "Istimewa") {
                         echo "
-                        <p>Data Admin untuk melihat data dan menambahkan admin.</p>
+                        <p>Halo, anda saat ini masuk sebagai admin istimewa! Anda dapat mengelola data admin dan informasi yang tampil pada aplikasi</p>
                         <button class='btn-2' onclick=window.location.href='profil-edit.php';>Edit Akun <i class='bi bi-pencil'></i></button>
-                        <button class='btn-1' onclick=window.location.href='admin.php';>Lihat Data Admin</i></button>
+                        <button class='btn-4' onclick=window.location.href='admin.php';>Lihat Data Admin</i></button>
+                        <button class='btn-1' onclick=window.location.href='informasi.php';>Kelola Informasi Aplikasi</i></button>
                         ";
                     } else {
                         echo "
