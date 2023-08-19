@@ -49,7 +49,7 @@
                         ";
                     } else {
                         echo "
-                        <p>Jika ingin mengubah data akun, klik edit akun.</p>
+                        <p>Jika ingin mengubah data akun, klik Edit Akun.</p>
                         <button class='btn-2' onclick=window.location.href='profil-edit.php';>Edit Akun <i class='bi bi-pencil'></i></button>
                         ";
                     } ?>

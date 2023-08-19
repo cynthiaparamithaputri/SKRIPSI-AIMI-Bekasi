@@ -38,7 +38,7 @@
                 <div class="row my-5">
                     <div class="col text-left mb-4">
                     <h3 class="mb-2 text-sm">Akun</h3>
-                    <p>Jika ingin mengubah password, klik ubah password</p>
+                    <p>Jika ingin mengubah password, klik Ubah Password</p>
                     <button class="btn-2" onclick="window.location.href='password-edit.php';">Ubah Password <i class="bi bi-pencil"></i></button>
                     </div>
                     <hr class="hr" />

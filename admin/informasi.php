@@ -48,7 +48,7 @@
                 <div class="row my-5">
                     <div class="col text-left mb-4">
                     <h3 class="mb-2 text-sm">Informasi Aplikasi</h3>
-                    <p>Jika ingin mengubah data akun, klik edit akun.</p>
+                    <p>Jika ingin mengubah informasi aplikasi, klik Edit Informasi.</p>
                     <button class="btn-2" onclick="window.location.href='informasi-edit.php';">Edit Informasi <i class="bi bi-pencil"></i></button>
                     </div>
                     <hr class="hr" />
