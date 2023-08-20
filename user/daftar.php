@@ -8,9 +8,9 @@
 
         $errorMessage = "";
 
-            $email = $_SESSION['login_user'];
+            $email_user = $_SESSION['login_user'];
 
-            $sql = "SELECT * FROM t_user WHERE email = '$email'";
+            $sql = "SELECT * FROM t_user WHERE email = '$email_user'";
             $hasil = mysqli_query($koneksi, $sql);
             $row = $hasil->fetch_assoc();
 
@@ -51,7 +51,7 @@
                 $nama_ibu = $_POST['nama_ibu'];
                 $alamat = $_POST['alamat'];
                 $telp = $_POST['telp'];
-                $email = $_POST['email'];
+                $email_user = $_POST['email_user'];
                 $info = $_POST['info'];
                 $media = $_POST['media'];
                 $bayi = $_POST['bayi'];
@@ -78,12 +78,12 @@
                 $dukung = $_POST['dukung'];
               
                 do {
-                  if (empty($nama_ibu) || empty($alamat) || empty($telp) || empty($email) || empty($info) || empty($media) || empty($bayi) || empty($bayi2) || empty($bayi3) || empty($bayi4) || empty($proses) || empty($IMD) || empty($rawat_gabung) || empty($berat) || empty($berat2) || empty($asupan) || empty($asupan_detail) || empty($botol) || empty($jaundice) || empty($MPASI) || empty($MPASI_detail) || empty($pernah_konsul) || empty($persiapan) || empty($kelas) || empty($jenis) || empty($masalah) || empty($bantuan) || empty($dukung)) {
+                  if (empty($nama_ibu) || empty($alamat) || empty($telp) || empty($email_user) || empty($info) || empty($media) || empty($bayi) || empty($bayi2) || empty($bayi3) || empty($bayi4) || empty($proses) || empty($IMD) || empty($rawat_gabung) || empty($berat) || empty($berat2) || empty($asupan) || empty($asupan_detail) || empty($botol) || empty($jaundice) || empty($MPASI) || empty($MPASI_detail) || empty($pernah_konsul) || empty($persiapan) || empty($kelas) || empty($jenis) || empty($masalah) || empty($bantuan) || empty($dukung)) {
                     $errorMessage = "Tidak boleh ada isian yang kosong!";
                     break;
                   }
               
-                    $sql2 = "INSERT INTO t_konseling (waktu_daftar, nama_ibu, alamat, no_wa, email, media_informasi, media_konseling, nama_bayi, usia_bayi, anak_ke, usia_hamil, proses_lahir, imd, rawat_gabung, berat_lahir, berat_sekarang, asupan_lain, detail_asupan, guna_botol_dot, jaundice, MPASI, detail_MPASI, konsultasi, persiapan_menyusui, kelas_konsul_MPASI, jenis_konseling, masalah, bantuan, dukungan, id_user) VALUES ('$waktu_daftar', '$nama_ibu', '$alamat', '$telp', '$email', '$info', '$media', '$bayi', $bayi2, $bayi3, $bayi4, '$proses', '$IMD', '$rawat_gabung', $berat, $berat2, '$asupan', '$asupan_detail', '$botol', '$jaundice', '$MPASI', '$MPASI_detail', '$pernah_konsul', '$persiapan', '$kelas',  '$jenis', '$masalah', '$bantuan', '$dukung', $id_user)";
+                    $sql2 = "INSERT INTO t_konseling (waktu_daftar, nama_ibu, alamat, no_wa, email, media_informasi, media_konseling, nama_bayi, usia_bayi, anak_ke, usia_hamil, proses_lahir, imd, rawat_gabung, berat_lahir, berat_sekarang, asupan_lain, detail_asupan, guna_botol_dot, jaundice, MPASI, detail_MPASI, konsultasi, persiapan_menyusui, kelas_konsul_MPASI, jenis_konseling, masalah, bantuan, dukungan, id_user) VALUES ('$waktu_daftar', '$nama_ibu', '$alamat', '$telp', '$email_user', '$info', '$media', '$bayi', $bayi2, $bayi3, $bayi4, '$proses', '$IMD', '$rawat_gabung', $berat, $berat2, '$asupan', '$asupan_detail', '$botol', '$jaundice', '$MPASI', '$MPASI_detail', '$pernah_konsul', '$persiapan', '$kelas',  '$jenis', '$masalah', '$bantuan', '$dukung', $id_user)";
                     $hasil2 = $koneksi->query($sql2);
 
                     if (!$hasil2) {
@@ -151,8 +151,8 @@
                     <input type="tel" id="telp" class="form-control" name="telp" value="<?php echo $telp ?>">
                 </div>
                 <div class="col">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" class="form-control" name="email" value="<?php echo $email ?>">
+                    <label for="email_user" class="form-label">Email</label>
+                    <input type="email" id="email_user" class="form-control" name="email_user" value="<?php echo $email_user ?>">
                 </div>
             </div>
 

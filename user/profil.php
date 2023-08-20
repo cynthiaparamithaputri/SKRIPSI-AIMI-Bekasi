@@ -31,9 +31,9 @@
             <?php 
             include '../koneksi.php';
 
-            $email = $_SESSION['login_user'];
+            $email_user = $_SESSION['login_user'];
 
-            $sql = "SELECT * FROM t_user WHERE email = '$email'";
+            $sql = "SELECT * FROM t_user WHERE email = '$email_user'";
             $hasil = mysqli_query($koneksi, $sql);
             $row = $hasil->fetch_assoc();
             ?>
