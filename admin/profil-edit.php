@@ -77,7 +77,7 @@
                 <div class="container">
                 <div class="row my-5">
                     <div class="col text-left mb-3">
-                    <h3 class="mb-2 text-sm">Edit Profil</h3>
+                    <h3 class="mb-2 text-sm">Edit Akun</h3>
                     <p>Pastikan data sesuai</p>
                     </div>
                     <hr class="hr" />

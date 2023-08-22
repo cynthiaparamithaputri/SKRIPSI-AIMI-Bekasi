@@ -28,8 +28,8 @@
       <div class="col col-lg-4 col-12 mt-lg-0 mt-5">
         <h5 class="fw-bold mb-3">Subscribe untuk info lebih</h5>
         <div class="social mt-3">
-          <a href="https://www.instagram.com/aimi_bekasi"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.youtube.com/channel/UCLSzttRD5bMyXcBI3Uz50_g"><i class="bi bi-youtube"></i></a>
+          <a href="https://www.instagram.com/aimi_bekasi" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.youtube.com/channel/UCLSzttRD5bMyXcBI3Uz50_g" target="_blank"><i class="bi bi-youtube"></i></a>
         </div>
       </div>
     </div>
