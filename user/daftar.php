@@ -87,7 +87,7 @@
                     $hasil2 = $koneksi->query($sql2);
 
                     if (!$hasil2) {
-                        $errorMessage = "Sistem bermasalah, data anda tidak terkirim";
+                        $errorMessage = "Sistem bermasalah, ada yang salah dengan isian anda. Hindari menggunakan tanda kutip";
                         break;
                     }
 
