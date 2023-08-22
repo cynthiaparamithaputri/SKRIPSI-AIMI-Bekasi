@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if ($password == $row['password']) {
         session_start();
         $_SESSION['login_user'] = $row['email'];
-        header('Location: user/beranda.php');
+        header('Location: user/');
         exit;
       } else {
         $errorMessage = "Gagal login. Password salah!";

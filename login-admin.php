@@ -36,13 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($role == "admin") {
         session_start();
         $_SESSION['login_admin'] = $row['id_unik'];
-        header('Location: admin/beranda.php');
+        header('Location: admin/');
         exit;
 
       } else if ($role == "konselor") {
         session_start();
         $_SESSION['login_konselor'] = $row['id_unik'];
-        header('Location: konselor/beranda.php');
+        header('Location: konselor/');
         exit;
 
       } else {

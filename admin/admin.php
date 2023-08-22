@@ -15,7 +15,7 @@
         $hak_akses = $row_hak['hak_akses'];
 
         if ($hak_akses !== "Istimewa") {
-            header("location: beranda.php");
+            header("location: index.php");
         } else {
 
         $no = 0;
