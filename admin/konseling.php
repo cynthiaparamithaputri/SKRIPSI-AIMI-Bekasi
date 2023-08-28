@@ -54,6 +54,62 @@
         $jumlah = mysqli_num_rows($hasil);
       }
 
+      if (isset($_POST['export_csv'])) {
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="data_konseling.csv"');
+        
+        $output = fopen('php://output', 'w');
+        
+        // Header untuk file CSV
+        $header = array('No.', 'Waktu Daftar', 'Nama', 'Jenis Konseling', 'Masalah yang Dihadapi', 'Status', 'Waktu Selesai', 'Konselor');
+        fputcsv($output, $header);
+        
+        // Query untuk mengambil data dari tabel
+        $export_sql = "SELECT * FROM t_konseling WHERE 1=1";
+
+        if (!empty($_POST['filter_bulan'])) {
+          $export_sql .= " AND MONTH(waktu_daftar) = '{$_POST['filter_bulan']}'";
+        }
+        
+        if (!empty($_POST['filter_tahun'])) {
+            $export_sql .= " AND YEAR(waktu_daftar) = '{$_POST['filter_tahun']}'";
+        }
+        
+        if (!empty($_POST['keyword'])) {
+            $export_sql .= " AND (LOWER(nama_ibu) LIKE '%{$_POST['keyword']}%' OR LOWER(jenis_konseling) LIKE '%{$_POST['keyword']}%' OR LOWER(masalah) LIKE '%{$_POST['keyword']}%' OR LOWER(status) LIKE '%{$_POST['keyword']}%')";
+        }
+
+        $export_sql .= " ORDER BY t_konseling.id_konseling DESC";
+        $export_result = mysqli_query($koneksi, $export_sql);
+        
+        $no = 0; // Reset nomor
+        
+        while ($row = mysqli_fetch_assoc($export_result)) {
+            $no = ++$no;
+            $waktu_selesai = ($row['waktu_selesai'] == '0000-00-00 00:00:00') ? '' : $row['waktu_selesai'];
+            
+            $id_petugas = $row['id_petugas'];
+            $sql2 = "SELECT * FROM t_admin WHERE id_petugas = '$id_petugas'";
+            $hasil2 = mysqli_query($koneksi, $sql2);
+            $row2 = mysqli_fetch_assoc($hasil2);
+            
+            $csv_data = array(
+                $no,
+                $row['waktu_daftar'],
+                $row['nama_ibu'],
+                $row['jenis_konseling'],
+                $row['masalah'],
+                $row['status'],
+                $waktu_selesai,
+                $row2['nama']
+            );
+            fputcsv($output, $csv_data);
+        }
+        
+        fclose($output);
+        exit;
+    }
+
   ?>
 
 <!doctype html>
@@ -80,7 +136,12 @@
             <h1>Data Konseling</h1>
             <p>Tetapkan seorang konselor yang tersedia untuk menangani sesi konseling dan salurkan informasi seperti jadwal dan wadah dengan kedua pihak</p>
               <div>
-                <button class="btn-3 btn-lg">Ekspor Semua ke CSV<i class="bi bi-download mx-2"></i></button>
+              <form method="post">
+              <input type="hidden" name="filter_bulan" value="<?php echo $filter_bulan; ?>">
+              <input type="hidden" name="filter_tahun" value="<?php echo $filter_tahun; ?>">
+              <input type="hidden" name="keyword" value="<?php echo $keyword; ?>">
+                  <button class="btn-3 btn-lg" type="submit" name="export_csv">Ekspor Semua ke CSV<i class="bi bi-download mx-2"></i></button>
+              </form>
               </div>
           </div>
         </header>

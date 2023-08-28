@@ -41,6 +41,48 @@
             $jumlah = mysqli_num_rows($hasil2);
         }
 
+        if (isset($_POST['export_csv'])) {
+          header('Content-Type: text/csv');
+          header('Content-Disposition: attachment; filename="feedback.csv"');
+
+          $keyword = $_POST['keyword'];
+          
+          $output = fopen('php://output', 'w');
+          
+          // Header untuk file CSV
+          $header = array('No.', 'ID', 'Nama', 'Jenis Konseling', 'Masalah yang Dihadapi', 'Feedback');
+          fputcsv($output, $header);
+          
+          // Query untuk mengambil data dari tabel
+          $export_sql = "SELECT * FROM t_konseling WHERE id_petugas = '$id_petugas' AND feedback != ''";
+          
+          if (!empty($keyword)) {
+            $export_sql .= " AND (LOWER(id_konseling) LIKE '%$keyword%' OR LOWER(nama_ibu) LIKE '%$keyword%' OR LOWER(jenis_konseling) LIKE '%$keyword%' OR LOWER(masalah) LIKE '%$keyword%' OR LOWER(feedback) LIKE '%$keyword%')";
+          }
+  
+          $export_sql .= " ORDER BY t_konseling.id_konseling DESC";
+          $export_result = mysqli_query($koneksi, $export_sql);
+          
+          $no = 0; // Reset nomor
+          
+          while ($row = mysqli_fetch_assoc($export_result)) {
+              $no = ++$no;
+              
+              $csv_data = array(
+                  $no,
+                  $row['id_konseling'],
+                  $row['nama_ibu'],
+                  $row['jenis_konseling'],
+                  $row['masalah'],
+                  $row['feedback']
+              );
+              fputcsv($output, $csv_data);
+          }
+          
+          fclose($output);
+          exit;
+      }
+
   ?>
 
 <!doctype html>
@@ -67,7 +109,10 @@
             <h1>Feedback</h1>
             <p>Lihat feedback yang telah diberikan kepada anda oleh para pasien konseling</p>
               <div>
-                <button class="btn-3 btn-lg">Ekspor Feedback ke CSV<i class="bi bi-download mx-2"></i></button>
+              <form method="post">
+              <input type="hidden" name="keyword" value="<?php echo $keyword; ?>">
+                  <button class="btn-3 btn-lg" type="submit" name="export_csv">Ekspor Feedback ke CSV<i class="bi bi-download mx-2"></i></button>
+              </form>
               </div>
           </div>
         </header>

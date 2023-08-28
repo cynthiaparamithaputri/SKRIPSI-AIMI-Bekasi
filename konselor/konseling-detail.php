@@ -32,6 +32,54 @@
       
       }
 
+      if (isset($_POST['export_detail_csv'])) {
+        $id_konseling = $_POST["id_konseling"];
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="detail_konseling.csv"');
+        
+        $output = fopen('php://output', 'w');
+        
+        $header = array(
+            'Timestamp', 'Nama Ibu', 'Alamat Lengkap', 'No WA', 'Email', 'Mendapat Informasi AIMI Dari',
+            'Media Konseling', 'Nama Bayi', 'Usia Bayi Saat Ini (Bulan)', 'Bayi Anak Ke', 'Usia Kehamilan Saat Bayi Lahir (Minggu)',
+            'Proses Kelahiran', 'Inisiasi Menyusui Dini (IMD)', 'Rawat Gabung Ibu dan Bayi', 'Berat Bayi Saat Lahir (Kg)',
+            'Berat Bayi Saat Ini (Kg)', 'Asupan Lain Selain ASI', 'Detail Asupan', 'Penggunaan Botol/Dot/Empeng',
+            'Riwayat Kuning (Jaundice)', 'Mulai MPASI', 'Detail MPASI', 'Konsultasi Konselor Menyusui/Konsultan Laktasi',
+            'Kelas Persiapan Menyusui', 'Kelas MPASI/Konseling MPASI', 'Jenis Konseling', 'Masalah', 'Bantuan dari Keluarga',
+            'Dukungan Suami dan Keluarga', 'Status', 'Waktu Selesai', 'Konselor'
+        );
+        fputcsv($output, $header);
+
+        $sql = "SELECT * FROM t_konseling WHERE id_konseling= '$id_konseling'";
+        $hasil = $koneksi->query($sql);
+        $row = $hasil->fetch_assoc();
+
+        $waktu_selesai = $row['waktu_selesai'];
+
+        if ($waktu_selesai == '0000-00-00 00:00:00' ) {
+          $waktu_selesai = "";
+        }
+
+        $id_petugas = $row['id_petugas'];
+        $sql2 = "SELECT * FROM t_admin WHERE id_petugas = '$id_petugas'";
+        $hasil2 = mysqli_query($koneksi, $sql2);
+        $row2 = $hasil2->fetch_assoc();
+        
+        $csv_data = array(
+            $row['waktu_daftar'], $row['nama_ibu'], $row['alamat'], $row['no_wa'], $row['email'],
+            $row['media_informasi'], $row['media_konseling'], $row['nama_bayi'], $row['usia_bayi'],
+            $row['anak_ke'], $row['usia_hamil'], $row['proses_lahir'], $row['imd'], $row['rawat_gabung'],
+            $row['berat_lahir'], $row['berat_sekarang'], $row['asupan_lain'], $row['detail_asupan'],
+            $row['guna_botol_dot'], $row['jaundice'], $row['MPASI'], $row['detail_MPASI'], $row['konsultasi'],
+            $row['persiapan_menyusui'], $row['kelas_konsul_MPASI'], $row['jenis_konseling'], $row['masalah'],
+            $row['bantuan'], $row['dukungan'], $row['status'], $waktu_selesai, $row2['nama']
+        );
+        fputcsv($output, $csv_data);
+        
+        fclose($output);
+        exit;
+    }
+
   ?>
 
 <!doctype html>
@@ -55,11 +103,13 @@
         <div class="user-app">
         <header class="jumbotron w-100 d-flex align-items-center">
           <div class="container text-center">
-            <h1>Data Konseling</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex at libero vulputate
-              gravida. Donec scelerisque mauris ac nisi iaculis, eget aliquet dui tempor.</p>
+            <h1>Detail Konseling</h1>
+            <p>Pada halaman ini terdapat seluruh isian dari data pendaftaran konseling</p>
               <div>
-                <button class="btn-3 btn-lg">Ekspor Data ke CSV<i class="bi bi-download mx-2"></i></button>
+              <form method="post">
+                    <input type="hidden" name="id_konseling" value="<?php echo $id_konseling; ?>">
+                    <button class="btn-3 btn-lg" type="submit" name="export_detail_csv">Ekspor Detail ke CSV<i class="bi bi-download mx-2"></i></button>
+                </form>
               </div>
           </div>
         </header>
